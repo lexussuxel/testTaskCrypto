@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/testTaskCrypto/static/js/main.a5998265.js",
+    "main.js": "/testTaskCrypto/static/js/main.5e068663.js",
     "index.html": "/testTaskCrypto/index.html",
-    "main.a5998265.js.map": "/testTaskCrypto/static/js/main.a5998265.js.map"
+    "main.5e068663.js.map": "/testTaskCrypto/static/js/main.5e068663.js.map"
   },
   "entrypoints": [
-    "static/js/main.a5998265.js"
+    "static/js/main.5e068663.js"
   ]
 }
