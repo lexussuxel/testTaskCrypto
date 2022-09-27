@@ -1,20 +1,37 @@
 import {FC} from "react";
 import styled from "@emotion/styled";
+import {WrapperBase, WrapperContent, Logo, InlineWrapper, ButtonWrapper} from "../../UI";
+import {useNavigate} from "react-router-dom";
 
-const WrapperHeader = styled.div`
-  display:flex;
-  position:sticky;
-  background: white;
-  margin: 0 auto;
-  height: 80px;
-  width: 800px;
-  border-radius: 0 0 10px 10px;
+
+const WrapperHeader = styled(WrapperBase)`
+  position: sticky;
+  top: 0;
+  height: 60px;
+  width: 100vw;
+  @media (min-width: 480px) {
+  }
+  @media (max-width: 480px) {
+  }
+`
+const WrapperHeaderContent = styled.div`
+  display: flex;
+  width: inherit;
+  margin: 0 10%;
+  flex-direction: row;
+  justify-content: space-between;
 `
 
 const Header: FC = ()=>{
-    return <WrapperHeader>
-
-    </WrapperHeader>
+    const navigate = useNavigate()
+    return (
+        <WrapperHeader>
+            <WrapperHeaderContent>
+                <InlineWrapper><ButtonWrapper>Coins</ButtonWrapper> <ButtonWrapper>About</ButtonWrapper></InlineWrapper>
+                <Logo onClick={()=> navigate('/')}>CryptoMan</Logo>
+                <InlineWrapper><ButtonWrapper>Portfolio</ButtonWrapper></InlineWrapper>
+            </WrapperHeaderContent>
+        </WrapperHeader>)
 }
 
 export default Header;
