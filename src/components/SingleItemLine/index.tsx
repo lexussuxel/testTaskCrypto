@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Item} from "../API";
+import {Item} from "../../API";
 
 interface IProps{
     item: Item;

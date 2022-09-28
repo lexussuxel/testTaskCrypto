@@ -27,12 +27,12 @@ export type Item = {
 
 }
 
-export async function getData(params?: IParams){
-    const data = await axios.get('https://api.coincap.io/v2/assets', {params})
+export async function getData(params?: IParams): Promise<Array<Item>>{
+    const data = await axios.get('https://api.coincap.io/v2/assets', {params}).then((res)=> res.data.data)
     return data
 }
 
-export async function getFullDataById(params:IFullParams){
-    const data = await axios.get(`api.coincap.io/v2/assets/${params.id}/history`, {params})
+export async function getFullDataById(params:IFullParams): Promise<Array<Item>>{
+    const data = await axios.get(`api.coincap.io/v2/assets/${params.id}/history`, {params}).then((res)=> res.data.data)
     return data
 }

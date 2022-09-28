@@ -11,7 +11,7 @@ export const WrapperBase = styled.div`
 `
 
 export const WrapperComponents = styled(WrapperBase)`
-  height: 100vh;
+  height: 100%;
   @media(min-width: 480px){
     border-radius: 2px;
     top: -25vh;
@@ -37,26 +37,49 @@ export const InlineWrapper = styled.div`
 `
 
 export const ButtonWrapper = styled.div`
-  font-family: "Gill Sans", sans-serif;
   cursor: pointer;
   padding: 5px;
   color: #919191;
   height:inherit;
+  
   :hover {
     font-weight: 150;
     background: #f3f3f3;
 
   }
 `
+export const PlayingLine = styled(WrapperBase)`
+  background: linear-gradient(90deg, #bc3ce7, #238bd5);
+  width: 100vw;
+  background-size: 400% 400%;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-name: play;
+  @keyframes play {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+`
 
 export const Logo = styled.div`
   display: flex;
   align-self: center;
-  color: rgb(38, 14, 253);
+  color: rgb(14, 161, 253);
   font-family: "Courier", serif;
   font-weight: bold;
   font-size: 1em;
   cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
   :hover {
     text-shadow: 0 0 20px rgba(33, 83, 183, 0.35);
@@ -65,19 +88,19 @@ export const Logo = styled.div`
     @keyframes oops {
       0% {
         opacity: 1;
-        transform: none
+        transform: translate(-50%, -50%);
       }
       33% {
         opacity: 1;
-        transform: translate3d(0px, 5%, 0px);
+        transform: translate(-50%, -45%);
       }
       66% {
         opacity: 1;
-        transform: translate3d(0px, -5%, 0px);
+        transform: translate(-50%, -55%);
       }
       100% {
         opacity: 1;
-        transform: none;
+        transform: translate(-50%, -50%);
       }
     }
   }

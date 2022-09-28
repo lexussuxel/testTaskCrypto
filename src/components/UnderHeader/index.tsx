@@ -1,24 +1,34 @@
-import React, {FC} from 'react';
-import styled from "@emotion/styled";
-import {WrapperBase} from "../../UI";
-
-const UnderHeaderWrapper = styled(WrapperBase)`
-  background: linear-gradient(90deg, #416fff, #ad16ec);
-  width: 100vw;
-
-  @media (min-width: 480px) {
-    height: 25vh;
-  }
-  @media (max-width: 480px) {
-    height: 5vh;
-  }
-\`                                                                                                                                                               
-`
+import React, {FC, useEffect, useState} from 'react';
+import {  ColumnWrapper} from "../../UI";
+import {getData, Item} from "../../API";
+import {useNavigate} from "react-router-dom";
+import { UnderHeaderWrapper, InlineItemsWrapper, ItemWrapper, ItemDescription, ItemTitle } from './styles';
 
 const UnderHeader:FC = () => {
+    const response = getData({limit:3});
+    const navigate = useNavigate();
+    const [data, setData] = useState<Array<Item>>([]);
+    useEffect(()=>{
+        response.then((res)=>{setData(res)})
+    }, [])
     return (
         <UnderHeaderWrapper>
-
+            <ColumnWrapper>
+                <InlineItemsWrapper>
+                    {data.map((element) => (
+                        <ItemWrapper onClick={()=>navigate(`/currency/${element.id}`)}>
+                            <ColumnWrapper>
+                                <ItemTitle>
+                                    {element.name}
+                                </ItemTitle>
+                                <ItemDescription>
+                                    {parseInt(element.priceUsd).toFixed(2) + " $"}
+                                </ItemDescription>
+                            </ColumnWrapper>
+                        </ItemWrapper>
+                    ))}
+                </InlineItemsWrapper>
+            </ColumnWrapper>
         </UnderHeaderWrapper>
     );
 };

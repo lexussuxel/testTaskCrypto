@@ -9,6 +9,7 @@ import styled from "@emotion/styled";
 import UnderHeader from "./components/UnderHeader";
 
 const AppWrapper = styled.div`
+  font-family: "Gill Sans", sans-serif;
 `
 
 function App() {
