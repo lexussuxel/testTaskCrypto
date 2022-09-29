@@ -3,6 +3,7 @@ import {  ColumnWrapper} from "../../UI";
 import {getData, Item} from "../../API";
 import {useNavigate} from "react-router-dom";
 import { UnderHeaderWrapper, InlineItemsWrapper, ItemWrapper, ItemDescription, ItemTitle } from './styles';
+import {convertBigNumbers} from "../../utils/convertBigNumbers";
 
 const UnderHeader:FC = () => {
     const response = getData({limit:3});
@@ -22,7 +23,7 @@ const UnderHeader:FC = () => {
                                     {element.name}
                                 </ItemTitle>
                                 <ItemDescription>
-                                    {parseInt(element.priceUsd).toFixed(2) + " $"}
+                                    {"$"+convertBigNumbers(element.priceUsd)}
                                 </ItemDescription>
                             </ColumnWrapper>
                         </ItemWrapper>

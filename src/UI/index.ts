@@ -1,4 +1,7 @@
 import styled from "@emotion/styled";
+import {ReactComponent as Wallet}from "./wallet.svg"
+import {ReactComponent as Coins} from "./coins.svg"
+
 
 export const WrapperBase = styled.div`
   display: flex;
@@ -29,6 +32,7 @@ export const WrapperContent = styled.div`
 export const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `
 
 export const InlineWrapper = styled.div`
@@ -103,5 +107,31 @@ export const Logo = styled.div`
         transform: translate(-50%, -50%);
       }
     }
+  }
+`
+
+export const CoinsIcon = styled(Coins)`
+  stroke: #515151;
+  width: 30px;
+  height: 30px;
+  :hover {
+    stroke: #000000;
+    stroke-width: 3px;
+  }
+
+`
+
+export const StyledButton = styled.div`
+  align-self: center;
+  margin: 20px 45%;
+  width: 10%;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  background-color: #238bd5;
+  border-radius: 20px;
+  cursor: pointer;
+  :hover{
+    box-shadow: 0 10px 70px rgba(183, 255, 228, 0.36);
   }
 `

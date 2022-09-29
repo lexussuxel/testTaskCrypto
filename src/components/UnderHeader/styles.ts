@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import {InlineWrapper, PlayingLine} from "../../UI";
 
 export const UnderHeaderWrapper = styled(PlayingLine)`
-  justify-content: center;
-
+  justify-self: center;
+  
   @media (min-width: 480px) {
     height: 25vh;
   }
@@ -33,7 +33,7 @@ export const ItemWrapper = styled.div`
         }
         100% {
           border-color: #e281f8;
-          padding: 10px;
+          padding: 8px;
         }
       }
       
@@ -44,13 +44,14 @@ export const ItemWrapper = styled.div`
 `
 
 export const InlineItemsWrapper = styled(InlineWrapper)`
+  margin: 0 10%;
   justify-content: space-between;
   text-align: center;
 `
 
 export const ItemTitle = styled.div`
   @media (min-width: 480px) {
-    font-size: 40px;
+    font-size: 35px;
   }
   @media (max-width: 480px) {
     font-size: 20px;
