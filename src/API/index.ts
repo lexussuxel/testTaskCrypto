@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 
 export interface IParams{
     search?: string;
@@ -12,27 +12,11 @@ export interface IFullParams{
     interval: string;
 }
 
-export type Item = {
-    id: string;
-    rank: string;
-    symbol:string;
-    name:string;
-    supply: string;
-    maxSupply: string;
-    marketCapUsd: string;
-    volumeUsd24Hr: string;
-    priceUsd: string;
-    changePercent24Hr: string;
-    vwap24Hr: string;
 
+export async function getData(params?: IParams): Promise<AxiosResponse>{
+    return await axios.get('https://api.coincap.io/v2/assets', {params})
 }
 
-export async function getData(params?: IParams): Promise<Array<Item>>{
-    const data = await axios.get('https://api.coincap.io/v2/assets', {params}).then((res)=> res.data.data)
-    return data
-}
-
-export async function getFullDataById(params:IFullParams): Promise<Array<Item>>{
-    const data = await axios.get(`api.coincap.io/v2/assets/${params.id}/history`, {params}).then((res)=> res.data.data)
-    return data
+export async function getFullDataById(params:IFullParams): Promise<AxiosResponse>{
+    return await axios.get(`api.coincap.io/v2/assets/${params.id}/history`, {params})
 }

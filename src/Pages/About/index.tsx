@@ -1,10 +1,11 @@
 import {FC} from 'react';
+import { WrapperComponents } from '../../UI';
 
 const About: FC = () => {
     return (
-        <div>
+        <WrapperComponents>
             about
-        </div>
+        </WrapperComponents>
     );
 };
 

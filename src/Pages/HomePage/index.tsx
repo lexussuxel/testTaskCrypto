@@ -1,10 +1,12 @@
 import {FC, useEffect, useState} from 'react';
-import { WrapperContent, ColumnWrapper, CoinsIcon, StyledButton} from "../../UI";
-import {getData, Item} from "../../API";
+import { ColumnWrapper, CoinsIcon , WrapperComponents} from "../../UI";
+import {getData} from "../../API";
 import {useNavigate} from "react-router-dom";
-import { WrapperHome, StyledTable, StyledTHead, StyledTBody, StyledTd, StyledTh, StyledTr, WrapperTable } from './styles';
+import {  StyledTable, StyledTHead, StyledTBody, StyledTd, StyledTh, StyledTr, WrapperTable, StyledButtonHome } from './styles';
 import {convertBigNumbers} from "../../utils/convertBigNumbers";
-import {tableFields, tableFieldsPhone} from "../../utils/types";
+import {Item, tableFields, tableFieldsPhone} from "../../utils/types";
+import {useAppDispatch} from "../../hooks/useTypedDispatch";
+import {changeCount} from "../../store/reducers/portfolioSlice";
 
 
 
@@ -14,16 +16,19 @@ const HomePage: FC = () => {
    const [data, setData] = useState<Array<Item>>([]);
    const [countOfPages, setCountOfPages] = useState<number>(1);
     useEffect(()=>{
-        getData({limit: 20, offset: data.length}).then((res)=>{setData(data.concat(res))})
+        getData({limit: 20, offset: data.length}).then((res)=>{setData(data.concat(res.data.data))})
     }, [countOfPages])
     const changeCountOfPages = ()=>{
         setCountOfPages(countOfPages + 1);
     }
+    const dispatch = useAppDispatch()
 
+    const addCurrency = (currency: Item)=>{
+        dispatch(changeCount({...currency, count: 1}))
+    }
 
     return (
-        <>
-        <WrapperHome>
+        <WrapperComponents>
             <ColumnWrapper>
                 <WrapperTable>
             <StyledTable>
@@ -58,7 +63,7 @@ const HomePage: FC = () => {
                                 <StyledTd>{convertBigNumbers(element.supply  )}</StyledTd>
                                 <StyledTd>{"$"+convertBigNumbers(element.volumeUsd24Hr  )}</StyledTd>
                                 <StyledTd>{convertBigNumbers(element.changePercent24Hr) + "%"}</StyledTd>
-                                <StyledTh><CoinsIcon/></StyledTh>
+                                <StyledTh onClick={()=> addCurrency(element)}><CoinsIcon/></StyledTh>
                             </StyledTr>
                         )
                         :
@@ -67,7 +72,7 @@ const HomePage: FC = () => {
                                 <StyledTd onClick={()=>navigate(`/currency/${element.id}`)}>{element.name}</StyledTd>
                                 <StyledTd>{parseFloat(element.priceUsd).toFixed(2)}</StyledTd>
                                 <StyledTd>{ parseFloat(element.changePercent24Hr).toFixed(2)}</StyledTd>
-                                <StyledTh onClick={()=> console.log("Open Modal")}><CoinsIcon/></StyledTh>
+                                <StyledTh onClick={()=> console.log("Open Modal")}><CoinsIcon /></StyledTh>
                             </StyledTr>
                         )
                     })
@@ -75,14 +80,12 @@ const HomePage: FC = () => {
             </StyledTable>
                 </WrapperTable>
                 {countOfPages?
-                    <StyledButton onClick={changeCountOfPages}>View more</StyledButton>
+                    <StyledButtonHome onClick={changeCountOfPages}>View more</StyledButtonHome>
                     : null
                 }
 
           </ColumnWrapper>
-        </WrapperHome>
-
-        </>
+        </WrapperComponents>
     );
 };
 

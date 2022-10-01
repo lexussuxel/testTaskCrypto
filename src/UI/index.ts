@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import {ReactComponent as Wallet}from "./wallet.svg"
 import {ReactComponent as Coins} from "./coins.svg"
 
 
@@ -14,13 +13,26 @@ export const WrapperBase = styled.div`
 `
 
 export const WrapperComponents = styled(WrapperBase)`
+  min-height: 80vh;
   height: 100%;
   @media(min-width: 480px){
     border-radius: 2px;
     top: -25vh;
     margin: -15vh 10% 0 10%;
-    width: 80%;}
-
+    width: 80%;
+    animation-duration: 1.5s;
+    animation-name: fadeInTop;
+    @keyframes fadeInTop {
+      0% {
+        opacity: 0;
+        transform: translate3d(0px, 50%, 0px);
+      }
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  }
 `
 
 export const WrapperContent = styled.div`
@@ -40,18 +52,6 @@ export const InlineWrapper = styled.div`
   flex-direction: row;
 `
 
-export const ButtonWrapper = styled.div`
-  cursor: pointer;
-  padding: 5px;
-  color: #919191;
-  height:inherit;
-  
-  :hover {
-    font-weight: 150;
-    background: #f3f3f3;
-
-  }
-`
 export const PlayingLine = styled(WrapperBase)`
   background: linear-gradient(90deg, #bc3ce7, #238bd5);
   width: 100vw;
@@ -121,17 +121,21 @@ export const CoinsIcon = styled(Coins)`
 
 `
 
+
+
 export const StyledButton = styled.div`
-  align-self: center;
-  margin: 20px 45%;
-  width: 10%;
+  width: auto;
+  height: auto;
   text-align: center;
   color: white;
-  padding: 5px;
-  background-color: #238bd5;
+  padding: 10px 15px;
+  margin: 5px;
+  background-color: #2698e8;
   border-radius: 20px;
   cursor: pointer;
-  :hover{
-    box-shadow: 0 10px 70px rgba(183, 255, 228, 0.36);
+
+  :hover {
+    background-color: #248fd2;
+    box-shadow: 0 0 20px rgba(82, 115, 101, 0.3);
   }
 `

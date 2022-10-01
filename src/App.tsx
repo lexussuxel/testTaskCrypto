@@ -7,8 +7,11 @@ import About from "./Pages/About";
 import Portfolio from "./Pages/Portfolio";
 import styled from "@emotion/styled";
 import UnderHeader from "./components/UnderHeader";
+import Footer from "./components/Footer";
 
 const AppWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   font-family: "Gill Sans", sans-serif;
 `
 
@@ -24,7 +27,7 @@ function App() {
             <Route path="/portfolio" element={<Portfolio/>} />
             <Route path="/*" element={<HomePage/>} />
         </Routes>
-
+          <Footer/>
       </AppWrapper>
   );
 }

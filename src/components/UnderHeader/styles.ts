@@ -17,7 +17,7 @@ export const ItemWrapper = styled.div`
   display: flex;
   padding: 5px;
   color: white;
-
+  max-height: 10vh;
   border: 2px solid rgba(255, 222, 173, 0);
   border-radius: 5px;
   @media (min-width: 480px) {
@@ -50,8 +50,10 @@ export const InlineItemsWrapper = styled(InlineWrapper)`
 `
 
 export const ItemTitle = styled.div`
+  
   @media (min-width: 480px) {
-    font-size: 35px;
+    max-font-size: 35px;
+    font-size: 2em;
   }
   @media (max-width: 480px) {
     font-size: 20px;

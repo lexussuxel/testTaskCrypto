@@ -1,22 +1,6 @@
 import styled from "@emotion/styled";
-import {WrapperComponents} from "../../UI";
+import {StyledButton} from "../../UI";
 
-export const WrapperHome = styled(WrapperComponents)`
-  @media(min-width: 480px){
-    animation-duration: 1.5s; 
-    animation-name: fadeInTop; 
-    @keyframes fadeInTop { 
-      0% {               
-        opacity: 0;
-        transform: translate3d(0px, 50%, 0px);
-      }
-      100% {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  }
-`
 
 export const WrapperTable = styled.div`
   margin:10px;
@@ -32,10 +16,16 @@ export const StyledTHead = styled.thead`
 `
 export const StyledTBody = styled.tbody`
   font-size: 13px;
+  tr{
+    :hover {
+      background-color: #e8e8e8;
+    }
+  }
 `
 export const StyledTr = styled.tr`
   text-align: justify;
   right: 0;
+  
 
   @media (min-width: 480px) {
 
@@ -46,14 +36,16 @@ export const StyledTr = styled.tr`
     width: auto;
     margin: auto;
   }
-
-  :hover {
-    background-color: #e8e8e8;
-  }
-
 `
+
+
 export const StyledTh = styled.th`
 `
 export const StyledTd = styled.td`
 
+`
+
+export const StyledButtonHome = styled(StyledButton)`
+  align-self: center;
+  margin: 20px 0;
 `
