@@ -7,6 +7,7 @@ import {convertBigNumbers} from "../../utils/convertBigNumbers";
 import {Item, tableFields, tableFieldsPhone} from "../../utils/types";
 import {useAppDispatch} from "../../hooks/useTypedDispatch";
 import {changeCount} from "../../store/reducers/portfolioSlice";
+import Modal from "../../components/Modal";
 
 
 
@@ -15,6 +16,8 @@ const HomePage: FC = () => {
    const navigate = useNavigate();
    const [data, setData] = useState<Array<Item>>([]);
    const [countOfPages, setCountOfPages] = useState<number>(1);
+   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+   const [element, setElement] = useState<Item>();
     useEffect(()=>{
         getData({limit: 20, offset: data.length}).then((res)=>{setData(data.concat(res.data.data))})
     }, [countOfPages])
@@ -23,11 +26,17 @@ const HomePage: FC = () => {
     }
     const dispatch = useAppDispatch()
 
-    const addCurrency = (currency: Item)=>{
-        dispatch(changeCount({...currency, count: 1}))
+    const openModal = (currency: Item)=>{
+        setElement(currency)
+        setIsOpenModal(true);
+    }
+
+    const addCurrency = (count: number)=>{
+        dispatch(changeCount(element ? {...element, count}: null));
     }
 
     return (
+        <div>
         <WrapperComponents>
             <ColumnWrapper>
                 <WrapperTable>
@@ -63,7 +72,7 @@ const HomePage: FC = () => {
                                 <StyledTd>{convertBigNumbers(element.supply  )}</StyledTd>
                                 <StyledTd>{"$"+convertBigNumbers(element.volumeUsd24Hr  )}</StyledTd>
                                 <StyledTd>{convertBigNumbers(element.changePercent24Hr) + "%"}</StyledTd>
-                                <StyledTh onClick={()=> addCurrency(element)}><CoinsIcon/></StyledTh>
+                                <StyledTh onClick={() => openModal(element)}><CoinsIcon/></StyledTh>
                             </StyledTr>
                         )
                         :
@@ -72,7 +81,7 @@ const HomePage: FC = () => {
                                 <StyledTd onClick={()=>navigate(`/currency/${element.id}`)}>{element.name}</StyledTd>
                                 <StyledTd>{parseFloat(element.priceUsd).toFixed(2)}</StyledTd>
                                 <StyledTd>{ parseFloat(element.changePercent24Hr).toFixed(2)}</StyledTd>
-                                <StyledTh onClick={()=> console.log("Open Modal")}><CoinsIcon /></StyledTh>
+                                <StyledTh  onClick={() => openModal(element)}><CoinsIcon /></StyledTh>
                             </StyledTr>
                         )
                     })
@@ -86,6 +95,8 @@ const HomePage: FC = () => {
 
           </ColumnWrapper>
         </WrapperComponents>
+            <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal} onClose={addCurrency}></Modal>
+        </div>
     );
 };
 

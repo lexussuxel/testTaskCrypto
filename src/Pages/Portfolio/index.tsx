@@ -12,12 +12,14 @@ const Portfolio: FC= () => {
                     <div>
                     {
                         portfolio.map((element) =>
-                            <div>{element.name} {element.count}</div>)
+                            <div>{element.name} {element.count} {(element.count * parseFloat(element.priceUsd)).toFixed(2)}</div>)
                     }
                     </div>
                     :
                     <div>Sorry, your portfolio is empty</div>
                 }
+                <hr/>
+                <div>${count.toFixed(2)} + ${percent.toFixed(2)}%</div>
             </ColumnWrapper>
         </WrapperComponents>
     );

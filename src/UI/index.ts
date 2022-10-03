@@ -121,8 +121,6 @@ export const CoinsIcon = styled(Coins)`
 
 `
 
-
-
 export const StyledButton = styled.div`
   width: auto;
   height: auto;

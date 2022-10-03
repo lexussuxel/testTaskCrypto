@@ -13,21 +13,23 @@ const portfolioSlice = createSlice({
     reducers:{
         changeCount: (
             state: IPortfolio,
-            {payload}: PayloadAction<ShortItem>
+            {payload}: PayloadAction<ShortItem | null>
         )=>{
-            console.log(payload)
-            state.count = 0;
-            const index = state.portfolio.findIndex((el) => el.id === payload.id)
-            if (index === -1)
-                state.portfolio = state.portfolio.concat(payload);
-            else
-            {state.portfolio[index].count += payload.count;
-            if (state.portfolio[index].count === 0){
-                state.portfolio = state.portfolio.filter((a) => a.id !== payload.id);
-            }}
+            if (payload !== null && payload.count !== 0){
+                state.count = 0;
+                const index = state.portfolio.findIndex((el) => el.id === payload.id)
+                if (index === -1)
+                    state.portfolio = state.portfolio.concat(payload);
+                else
+                {state.portfolio[index].count += payload.count;
+                    if (state.portfolio[index].count === 0){
+                        state.portfolio = state.portfolio.filter((a) => a.id !== payload.id);
+                    }}
 
-            state.portfolio.forEach(element => state.count += element.count * parseFloat(element.priceUsd));
-            state.percent = state.count * 0.018;
+                state.portfolio.forEach(element => state.count += element.count * parseFloat(element.priceUsd));
+                state.percent = state.count * 0.018;
+            }
+
         }
         ,
         remove: (
