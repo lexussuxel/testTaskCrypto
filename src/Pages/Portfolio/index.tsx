@@ -1,5 +1,5 @@
 import {FC, useState} from 'react';
-import {ColumnWrapper,  Input, StyledButton, SubmitButton} from '../../UI';
+import {ColumnWrapper, Input, StyledButton, SubmitButton} from '../../UI';
 import {useAppSelector} from "../../hooks/useTypedSelector";
 import {ItemWrapper, PortfolioWrapper, StyledHr, Title, ButtonWrapper, InfoWrapper, StyledForm, StyledInlineWrapper, ItemDescription } from './styles';
 import {ShortItem} from "../../utils/types";
@@ -61,7 +61,11 @@ const Portfolio: FC= () => {
                         :
                         <div>Sorry, your portfolio is empty</div>
                     }
-                    <div>${count.toFixed(2)} + ${percent.toFixed(2)}%</div>
+                    <StyledInlineWrapper>
+                        <Title>Total:</Title>
+                        <p>${count.toFixed(2)} + ${percent.toFixed(2)}%</p>
+                    </StyledInlineWrapper>
+
                 </ColumnWrapper>
             </PortfolioWrapper>
     );

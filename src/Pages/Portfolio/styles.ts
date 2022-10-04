@@ -57,6 +57,11 @@ export const StyledForm = styled.form`
 `
 export const StyledInlineWrapper = styled(InlineWrapper)`
   justify-content: space-between;
+  p, h3{
+    margin-block-end: 0;
+    margin-block-start: 0;
+    text-align: center;
+  }
 `
 
 export const ItemDescription = styled.div`
