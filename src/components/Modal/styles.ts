@@ -32,36 +32,6 @@ export const ContentModal = styled.div`
   }
 `;
 
-export const Input = styled.input`
-  display: flex;
-  padding: 5px;
-  font-size: 15px;
-  border-radius: 10px;
-  border-color: #cdcdcd;
-  border-style: solid;
-
-  :hover {
-    border-color: #737373;
-  }
-
-  :focus-visible {
-    border-color: #2698e8;
-    outline: none;
-  }
-`
-
-export const SubmitButton = styled.button`
-  cursor: pointer;
-  margin-top: 5px;
-  color: white;
-  background-color: #2698e8;
-  border-radius: 10px;
-  padding: 5px;
-  border: none;
-  :disabled{
-    background-color: #737373;
-  }
-`
 export const Title = styled.h3`
   
 `

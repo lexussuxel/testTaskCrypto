@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 import {StyledButton} from "../../UI";
+import {colors} from "../../UI/colors";
 
 
 export const WrapperTable = styled.div`
-  margin:10px;
+    
 `
 export const StyledTable = styled.table`
   width:100%;
@@ -18,7 +19,7 @@ export const StyledTBody = styled.tbody`
   font-size: 13px;
   tr{
     :hover {
-      background-color: #e8e8e8;
+      background-color: ${colors.secondary_grey};
     }
   }
 `

@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 import {ReactComponent as Coins} from "./coins.svg"
+import {colors} from "./colors";
 
 
 export const WrapperBase = styled.div`
   display: flex;
   background: #fffefe;
-  max-width: 100%;
+ // max-width: 100%;
   box-shadow: 0 10px 70px rgba(183, 255, 228, 0.36);
   @media (min-width: 480px) {
 
@@ -15,11 +16,11 @@ export const WrapperBase = styled.div`
 export const WrapperComponents = styled(WrapperBase)`
   min-height: 80vh;
   height: 100%;
+  padding: 10px;
   @media(min-width: 480px){
     border-radius: 2px;
     top: -25vh;
     margin: -15vh 10% 0 10%;
-    width: 80%;
     animation-duration: 1.5s;
     animation-name: fadeInTop;
     @keyframes fadeInTop {
@@ -53,7 +54,7 @@ export const InlineWrapper = styled.div`
 `
 
 export const PlayingLine = styled(WrapperBase)`
-  background: linear-gradient(90deg, #bc3ce7, #238bd5);
+  background: ${colors.gradient};
   width: 100vw;
   background-size: 400% 400%;
   animation-duration: 10s;
@@ -75,7 +76,7 @@ export const PlayingLine = styled(WrapperBase)`
 export const Logo = styled.div`
   display: flex;
   align-self: center;
-  color: rgb(14, 161, 253);
+  color: ${colors.main_blue};
   font-family: "Courier", serif;
   font-weight: bold;
   font-size: 1em;
@@ -86,7 +87,7 @@ export const Logo = styled.div`
   transform: translate(-50%, -50%);
 
   :hover {
-    text-shadow: 0 0 20px rgba(33, 83, 183, 0.35);
+    text-shadow: 0 0 20px ${colors.shadow};
     animation-duration: 0.5s;
     animation-name: oops;
     @keyframes oops {
@@ -111,7 +112,7 @@ export const Logo = styled.div`
 `
 
 export const CoinsIcon = styled(Coins)`
-  stroke: #515151;
+  stroke: ${colors.main_grey};
   width: 30px;
   height: 30px;
   :hover {
@@ -122,18 +123,48 @@ export const CoinsIcon = styled(Coins)`
 `
 
 export const StyledButton = styled.div`
-  width: auto;
+  display: flex;
   height: auto;
   text-align: center;
   color: white;
   padding: 10px 15px;
   margin: 5px;
-  background-color: #2698e8;
+  background-color: ${colors.main_blue};
   border-radius: 20px;
   cursor: pointer;
 
   :hover {
-    background-color: #248fd2;
-    box-shadow: 0 0 20px rgba(82, 115, 101, 0.3);
+    background-color: ${colors.secondary_blue};
+    box-shadow: 0 0 20px ${colors.shadow_2};
+  }
+`
+export const Input = styled.input`
+  display: flex;
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 10px;
+  border-color: #cdcdcd;
+  border-style: solid;
+
+  :hover {
+    border-color: #737373;
+  }
+
+  :focus-visible {
+    border-color: #2698e8;
+    outline: none;
+  }
+`
+export const SubmitButton = styled.button`
+  cursor: pointer;
+  margin-top: 5px;
+  color: white;
+  background-color: #2698e8;
+  border-radius: 10px;
+  padding: 5px;
+  border: none;
+
+  :disabled {
+    background-color: #737373;
   }
 `

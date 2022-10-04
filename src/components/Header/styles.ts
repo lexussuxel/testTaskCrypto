@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import {ColumnWrapper, WrapperBase} from "../../UI";
+import {colors} from "../../UI/colors";
 
 export const WrapperHeader = styled(WrapperBase)`
   position: sticky;
@@ -32,10 +33,10 @@ export const ColumnWrapperHeader = styled(ColumnWrapper)`
 export const HeaderButtonWrapper = styled.div`
   cursor: pointer;
   padding: 5px;
-  color: #919191;
+  color: ${colors.main_grey};
   height: inherit;
   :hover {
-    background: #f3f3f3;
+    background: ${colors.secondary_grey};
 
   }
   .p{

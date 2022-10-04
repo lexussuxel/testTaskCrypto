@@ -44,13 +44,13 @@ const HomePage: FC = () => {
                 {window.innerWidth >= 480?
                     <StyledTHead>
                         <StyledTr>
-                            {tableFields.map((a)=> <StyledTh>{a}</StyledTh>)}
+                            {tableFields.map((a, key)=> <StyledTh key={key}>{a}</StyledTh>)}
                         </StyledTr>
                     </StyledTHead>
                     :
                     <StyledTHead>
                         <StyledTr>
-                            {tableFieldsPhone.map((a)=> <StyledTh>{a}</StyledTh>)}
+                            {tableFieldsPhone.map((a, key)=> <StyledTh key={key}>{a}</StyledTh>)}
                         </StyledTr>
                     </StyledTHead>
                 }
@@ -95,7 +95,7 @@ const HomePage: FC = () => {
 
           </ColumnWrapper>
         </WrapperComponents>
-            <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal} onClose={addCurrency}></Modal>
+            <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal} onClose={addCurrency} price={parseFloat(element?.priceUsd || "0")}></Modal>
         </div>
     );
 };

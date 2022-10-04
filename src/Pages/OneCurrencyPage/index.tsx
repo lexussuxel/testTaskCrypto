@@ -1,10 +1,11 @@
 import {FC} from 'react';
+import { WrapperComponents } from '../../UI';
 
 const OneCurrencyPage: FC = () => {
     return (
-        <div>
+        <WrapperComponents>
             oneCurrency
-        </div>
+        </WrapperComponents>
     );
 };
 

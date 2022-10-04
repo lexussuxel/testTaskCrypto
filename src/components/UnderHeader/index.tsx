@@ -18,7 +18,7 @@ const UnderHeader:FC = () => {
             <ColumnWrapper>
                 <InlineItemsWrapper>
                     {data.map((element) => (
-                        <ItemWrapper onClick={()=>navigate(`/currency/${element.id}`)}>
+                        <ItemWrapper onClick={()=>navigate(`/currency/${element.id}`)}  key={element.rank}>
                             <ColumnWrapper>
                                 <ItemTitle>
                                     {element.name}
