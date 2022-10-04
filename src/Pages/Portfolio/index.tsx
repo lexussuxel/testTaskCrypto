@@ -1,5 +1,5 @@
 import {FC, useState} from 'react';
-import {ColumnWrapper,  Input, StyledButton, SubmitButton, WrapperComponents} from '../../UI';
+import {ColumnWrapper,  Input, StyledButton, SubmitButton} from '../../UI';
 import {useAppSelector} from "../../hooks/useTypedSelector";
 import {ItemWrapper, PortfolioWrapper, StyledHr, Title, ButtonWrapper, InfoWrapper, StyledForm, StyledInlineWrapper, ItemDescription } from './styles';
 import {ShortItem} from "../../utils/types";
