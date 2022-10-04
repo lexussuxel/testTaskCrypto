@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/testTaskCrypto/static/js/main.cb2a1889.js",
+    "main.js": "/testTaskCrypto/static/js/main.858ab87a.js",
     "static/media/coins.svg": "/testTaskCrypto/static/media/coins.0ce0810bd99299c137274300754435fd.svg",
     "index.html": "/testTaskCrypto/index.html",
-    "main.cb2a1889.js.map": "/testTaskCrypto/static/js/main.cb2a1889.js.map"
+    "main.858ab87a.js.map": "/testTaskCrypto/static/js/main.858ab87a.js.map"
   },
   "entrypoints": [
-    "static/js/main.cb2a1889.js"
+    "static/js/main.858ab87a.js"
   ]
 }
