@@ -28,51 +28,34 @@ const HomePage: FC = () => {
             <ColumnWrapper>
                 <WrapperTable>
             <StyledTable>
-                {window.innerWidth >= 480?
                     <StyledTHead>
                         <StyledTr>
-                            {tableFields.map((a, key)=> <StyledTh key={key}>{a}</StyledTh>)}
+                            {tableFields.map((a, key)=> <StyledTh key={key} mobileShown={a.mobileShown}>{a.name}</StyledTh>)}
                         </StyledTr>
                     </StyledTHead>
-                    :
-                    <StyledTHead>
-                        <StyledTr>
-                            {tableFieldsPhone.map((a, key)=> <StyledTh key={key}>{a}</StyledTh>)}
-                        </StyledTr>
-                    </StyledTHead>
-                }
+
                 <StyledTBody>
                 {
-                    data.map((element)=> {return window.innerWidth >= 480?
-                        (
-                            <StyledTr key={element.id} onClick={()=>navigate(`/currency/${element.id}`)}>
-                                <StyledTd>{element.rank}</StyledTd>
-                                <StyledTd >
-                                    <ColumnWrapper>
-                                        <div>{element.name}</div>
-                                        <div style={{fontSize:'10px'}}>{element.symbol}</div>
-                                    </ColumnWrapper>
-                                </StyledTd>
-                                <StyledTd>{"$"+convertBigNumbers(element.priceUsd)}</StyledTd>
-                                <StyledTd>{"$"+convertBigNumbers(element.marketCapUsd )}</StyledTd>
-                                <StyledTd>{"$"+convertBigNumbers(element.vwap24Hr)}</StyledTd>
-                                <StyledTd>{convertBigNumbers(element.supply  )}</StyledTd>
-                                <StyledTd>{"$"+convertBigNumbers(element.volumeUsd24Hr  )}</StyledTd>
-                                <StyledTd>{convertBigNumbers(element.changePercent24Hr) + "%"}</StyledTd>
-                                <StyledTh><AddCurrencyButton element={element}/></StyledTh>
-                            </StyledTr>
-                        )
-                        :
-                        (
-                            <StyledTr key={element.id} onClick={()=>navigate(`/currency/${element.id}`)}>
-                                <StyledTd onClick={()=>navigate(`/currency/${element.id}`)}>{element.name}</StyledTd>
-                                <StyledTd>{parseFloat(element.priceUsd).toFixed(2)}</StyledTd>
-                                <StyledTd>{ parseFloat(element.changePercent24Hr).toFixed(2)}</StyledTd>
-                                <StyledTh><AddCurrencyButton element={element}/></StyledTh>
-                            </StyledTr>
-                        )
-                    })
-                }</StyledTBody>
+                    data.map((element)=>
+                        <StyledTr key={element.id}>
+                            <StyledTd mobileShown={true}>{element.rank}</StyledTd>
+                            <StyledTd mobileShown={true} onClick={()=>navigate(`/currency/${element.id}`)} style={{cursor:'pointer'}}>
+                                <ColumnWrapper>
+                                    <div>{element.name}</div>
+                                    <div style={{fontSize:'10px'}}>{element.symbol}</div>
+                                </ColumnWrapper>
+                            </StyledTd>
+                            <StyledTd>{"$"+convertBigNumbers(element.priceUsd)}</StyledTd>
+                            <StyledTd>{"$"+convertBigNumbers(element.marketCapUsd )}</StyledTd>
+                            <StyledTd>{"$"+convertBigNumbers(element.vwap24Hr)}</StyledTd>
+                            <StyledTd>{convertBigNumbers(element.supply  )}</StyledTd>
+                            <StyledTd>{"$"+convertBigNumbers(element.volumeUsd24Hr  )}</StyledTd>
+                            <StyledTd mobileShown={true}>{convertBigNumbers(element.changePercent24Hr) + "%"}</StyledTd>
+                            <StyledTd mobileShown={true}><AddCurrencyButton element={element}/></StyledTd>
+                        </StyledTr>
+                    )
+                }
+                </StyledTBody>
             </StyledTable>
                 </WrapperTable>
                 {countOfPages?

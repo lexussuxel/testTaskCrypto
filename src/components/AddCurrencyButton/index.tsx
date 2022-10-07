@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, MouseEventHandler, useState} from 'react';
 import {Item} from "../../utils/types";
 import {CoinsIcon} from "../../UI";
 import {useAppDispatch} from "../../hooks/useTypedDispatch";

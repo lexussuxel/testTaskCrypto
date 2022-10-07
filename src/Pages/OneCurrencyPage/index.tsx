@@ -7,16 +7,20 @@ import { InlineWrapper } from '../../UI';
 import {convertBigNumbers} from "../../utils/convertBigNumbers";
 import {Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts';
 import {colors} from "../../UI/colors";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 
 const OneCurrencyPage: FC = () => {
     const { id } = useParams();
     const [data, setData] = useState<Item>();
     const [chartData, setChartData] = useState<Array<any>>([]);
+    const isPhone = useMediaQuery('(max-width: 480px)');
     useEffect(()=>{
         getData({search: id || ''}).then((res)=>{setData(res.data.data[0])})
         getFullDataById({id: id || "", interval:'h2'}).then((res)=> {setChartData(res.data.data.map((element: any)=>{ return{...element, time: new Date(element.time)}} ))})
     },[id])
-
+    const style = {
+        display: isPhone?'none':'initial'
+    }
     return (
         <WrapperCurrency>
            <InlineWrapper>
@@ -64,7 +68,7 @@ const OneCurrencyPage: FC = () => {
                     <AreaChart data={chartData}  margin={{ top: 30, right: 0, left: 0, bottom: 0 }}>
                         <YAxis domain={['dataMin', 'auto']}/>
                         <XAxis dataKey='time' display={'none'}/>
-                        {window.innerWidth >=480? <Tooltip />: null}
+                        <Tooltip wrapperStyle={style}/>
                         <Area type="monotone" dataKey="priceUsd" stroke={colors.main_blue} fillOpacity={0.5} fill={colors.bright_blue} />
                     </AreaChart>
                 </ResponsiveContainer>

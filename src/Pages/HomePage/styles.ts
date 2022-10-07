@@ -26,7 +26,6 @@ export const StyledTBody = styled.tbody`
 export const StyledTr = styled.tr`
   text-align: justify;
   right: 0;
-  cursor: pointer;
 
   @media (min-width: 480px) {
 
@@ -39,11 +38,20 @@ export const StyledTr = styled.tr`
   }
 `
 
+interface ITableProps{
+    mobileShown?: boolean;
+}
 
-export const StyledTh = styled.th`
+export const StyledTh = styled.th<ITableProps>`
+    @media(max-width: 480px){
+      display: ${({mobileShown})=> mobileShown?"table-cell":"none"}
+    }
+
 `
-export const StyledTd = styled.td`
-
+export const StyledTd = styled.td<ITableProps>`
+  @media(max-width: 480px){
+    display: ${({mobileShown})=> mobileShown?"table-cell":"none"}
+  }
 `
 
 export const StyledButtonHome = styled(StyledButton)`

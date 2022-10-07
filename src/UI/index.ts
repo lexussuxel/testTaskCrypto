@@ -113,6 +113,7 @@ export const Logo = styled.div`
 `
 
 export const CoinsIcon = styled(Coins)`
+  display: flex;
   stroke: ${colors.main_grey};
   width: 30px;
   height: 30px;

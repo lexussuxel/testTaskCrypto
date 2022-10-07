@@ -39,7 +39,6 @@ export const ParamsWrapper = styled.div`
     left: -10%;
     padding: 10px 10%;
   }
- 
   background-color: ${colors.bright_blue};
   transition: width 2s ease-in, color 2s ease-in;
   animation-name: a;

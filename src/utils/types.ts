@@ -1,12 +1,12 @@
 export const tableFields = [
-    'Rank',
-    'Name',
-    'Price',
-    'Market Cap',
-    'VWAP (24Hr)',
-    'Supply',
-    'Volume (24Hr)',
-    'Change (24Hr)'
+    {mobileShown: true, name: 'Rank'},
+    {mobileShown: true, name: 'Name'},
+    {mobileShown: false, name: 'Price'},
+    {mobileShown: false, name: 'Market Cap'},
+    {mobileShown: false, name: 'VWAP (24Hr)'},
+    {mobileShown: false, name: 'Supply'},
+    {mobileShown: false, name: 'Volume (24Hr)'},
+    {mobileShown: true, name: 'Change (24Hr)'}
 ]
 
 export const tableFieldsPhone = [
