@@ -40,7 +40,7 @@ const Portfolio: FC= () => {
                                         {checkedValue === element.id?
                                             <StyledForm onSubmit={() => handleSubmit(element)}>
                                                 <Input type='number' value={inputValue} min="0" step='10e-4' onChange={(e)=> {setInputValue(parseFloat(e.target.value))}}/>
-                                                <SubmitButton type='submit' disabled={isNaN(inputValue)}>add</SubmitButton>
+                                                <SubmitButton type='submit' disabled={isNaN(inputValue)}>submit</SubmitButton>
                                                 <SubmitButton type='button' onClick={()=> handleRemove(element)}>remove</SubmitButton>
                                             </StyledForm>
                                             :  <ItemDescription>{element.count} {element.symbol}</ItemDescription>

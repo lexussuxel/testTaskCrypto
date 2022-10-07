@@ -6,10 +6,10 @@ import {colors} from "./colors";
 export const WrapperBase = styled.div`
   display: flex;
   background: #fffefe;
- // max-width: 100%;
-  box-shadow: 0 10px 70px rgba(183, 255, 228, 0.36);
+  max-width: 100%;
+  box-shadow: 0 10px 70px ${colors.shadow};
   @media (min-width: 480px) {
-
+    
   }
 `
 
@@ -116,6 +116,7 @@ export const CoinsIcon = styled(Coins)`
   stroke: ${colors.main_grey};
   width: 30px;
   height: 30px;
+  cursor: pointer;
   :hover {
     stroke: #000000;
     stroke-width: 3px;
@@ -123,7 +124,7 @@ export const CoinsIcon = styled(Coins)`
 
 `
 
-export const StyledButton = styled.div`
+export const StyledButton = styled.button`
   display: flex;
   height: auto;
   text-align: center;
@@ -131,6 +132,7 @@ export const StyledButton = styled.div`
   padding: 10px 15px;
   margin: 5px;
   background-color: ${colors.main_blue};
+  border-style: unset;
   border-radius: 20px;
   cursor: pointer;
 

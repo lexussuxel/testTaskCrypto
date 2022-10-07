@@ -16,7 +16,7 @@ const OneCurrencyPage: FC = () => {
         getData({search: id || ''}).then((res)=>{setData(res.data.data[0])})
         getFullDataById({id: id || "", interval:'h2'}).then((res)=> {setChartData(res.data.data.map((element: any)=>{ return{...element, time: new Date(element.time)}} ))})
     },[id])
-    console.log(chartData)
+
     return (
         <WrapperCurrency>
            <InlineWrapper>
@@ -59,14 +59,17 @@ const OneCurrencyPage: FC = () => {
                     <FieldDescription></FieldDescription>
                 </StyledInlineWrapper>
             </ParamsWrapper>
-            <ResponsiveContainer width="100%" aspect={window.innerWidth <=480? 1: 2}>
-                <AreaChart data={chartData}  margin={{ top: 30, right: 0, left: 0, bottom: 0 }}>
-                    <YAxis domain={['dataMin', 'auto']}/>
-                    <XAxis dataKey='time' display={'none'}/>
-                    <Tooltip />
-                    <Area type="monotone" dataKey="priceUsd" stroke={colors.main_blue} fillOpacity={0.5} fill={colors.bright_blue} />
-                </AreaChart>
-            </ResponsiveContainer>
+            <div style={{position: 'static'}}>
+                <ResponsiveContainer width="100%"  aspect={window.innerWidth <=480? 1: 2}>
+                    <AreaChart data={chartData}  margin={{ top: 30, right: 0, left: 0, bottom: 0 }}>
+                        <YAxis domain={['dataMin', 'auto']}/>
+                        <XAxis dataKey='time' display={'none'}/>
+                        {window.innerWidth >=480? <Tooltip />: null}
+                        <Area type="monotone" dataKey="priceUsd" stroke={colors.main_blue} fillOpacity={0.5} fill={colors.bright_blue} />
+                    </AreaChart>
+                </ResponsiveContainer>
+            </div>
+
 
 
         </WrapperCurrency>

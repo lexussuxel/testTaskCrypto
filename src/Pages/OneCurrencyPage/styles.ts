@@ -1,10 +1,14 @@
 import {InlineWrapper, WrapperComponents} from "../../UI";
 import styled from "@emotion/styled";
 import {colors} from "../../UI/colors";
-import { YAxis} from "recharts";
 
 export const WrapperCurrency = styled(WrapperComponents)`
     flex-direction: column;
+  @media(min-width: 480px){
+  }
+  @media(max-width: 480px){
+  }
+  
 `
 
 export const Title = styled.h1`
@@ -30,9 +34,12 @@ export const StyledInlineWrapper = styled(InlineWrapper)`
 
 export const ParamsWrapper = styled.div`
   justify-self: center;
-  position: relative;
-  left: -10%;
-  padding: 10px 10%;
+  @media(min-width: 480px){
+    position: relative;
+    left: -10%;
+    padding: 10px 10%;
+  }
+ 
   background-color: ${colors.bright_blue};
   transition: width 2s ease-in, color 2s ease-in;
   animation-name: a;

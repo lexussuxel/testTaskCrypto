@@ -7,7 +7,7 @@ export const FooterWrapper = styled(PlayingLine)`
   align-content: center;
   text-align: center;
   @media(max-width: 480px){
-    height: 10px;
+    height: auto;
   }
   @media(min-width: 480px){
     margin-top: 5vh;
@@ -15,6 +15,6 @@ export const FooterWrapper = styled(PlayingLine)`
   }
 `
 
-export const Title = styled.h2`
+export const Title = styled.div`
   opacity: 0.5;
 `

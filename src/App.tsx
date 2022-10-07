@@ -13,7 +13,6 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   font-family: "Gill Sans", sans-serif;
-  overflow: hidden;
 `
 
 function App() {

@@ -4,10 +4,9 @@ import {InlineWrapper, WrapperComponents} from "../../UI";
 
 export const PortfolioWrapper = styled(WrapperComponents)`
   display: flex;
-  width: 100%;
     @media(min-width: 480px){
       margin: -15vh auto 0 auto;
-      max-width: 40vw;
+      width: 40vw;
     }
 `
 

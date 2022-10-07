@@ -26,11 +26,11 @@ export const StyledTBody = styled.tbody`
 export const StyledTr = styled.tr`
   text-align: justify;
   right: 0;
-  
+  cursor: pointer;
 
   @media (min-width: 480px) {
 
-    :nth-child(2) {
+    :nth-of-type(2) {
       width: 100px;
     }
 
