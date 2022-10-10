@@ -52,7 +52,7 @@ const HomePage: FC = () => {
                             <StyledTd>{convertBigNumbers(element.supply  )}</StyledTd>
                             <StyledTd>{"$"+convertBigNumbers(element.volumeUsd24Hr  )}</StyledTd>
                             <StyledTd mobileShown={true}>{convertBigNumbers(element.changePercent24Hr) + "%"}</StyledTd>
-                            <StyledTd mobileShown={true}><AddCurrencyButton element={element}/></StyledTd>
+                            <StyledTd mobileShown={true}><AddCurrencyButton element={element} style={'coin'}/></StyledTd>
                         </StyledTr>
                     )
                 }

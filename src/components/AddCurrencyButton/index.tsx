@@ -1,15 +1,18 @@
 import React, {FC, MouseEventHandler, useState} from 'react';
 import {Item} from "../../utils/types";
-import {CoinsIcon} from "../../UI";
+import {CoinsIcon, StyledButton} from "../../UI";
 import {useAppDispatch} from "../../hooks/useTypedDispatch";
 import {changeCount} from "../../store/reducers/portfolioSlice";
 import Modal from "../Modal";
 
 interface IAddCurrencyButtonProps {
-    element: Item;
+    element: Item | undefined;
+    style?: string;
 }
 
-const AddCurrencyButton:FC<IAddCurrencyButtonProps> = ({element}) => {
+const AddCurrencyButton:FC<IAddCurrencyButtonProps> = ({element, style}) => {
+    if (element === undefined)
+        return null;
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const dispatch = useAppDispatch()
 
@@ -22,7 +25,14 @@ const AddCurrencyButton:FC<IAddCurrencyButtonProps> = ({element}) => {
     }
     return (
         <div>
-            <CoinsIcon onClick={openModal}/>
+            {style === 'coin'?
+                <CoinsIcon onClick={openModal}/>
+                :
+                <StyledButton onClick={openModal}>
+                    Add to wallet
+                </StyledButton>
+            }
+
             <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal} onClose={addCurrency} price={parseFloat(element.priceUsd)}></Modal>
         </div>
     );

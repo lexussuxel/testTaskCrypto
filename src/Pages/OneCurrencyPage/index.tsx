@@ -1,5 +1,5 @@
 import {FC, useEffect, useState} from 'react';
-import {FieldDescription, FieldName, ParamsWrapper, SecondaryText, StyledInlineWrapper, Title, WrapperCurrency } from './styles';
+import {FieldDescription, FieldName, ParamsWrapper, SecondaryText, StyledInlineWrapper, Title, WrapperCurrency, SpaceBetween } from './styles';
 import {useParams} from "react-router-dom";
 import {convertable, currency, Item, ItemChart, tableFields} from "../../utils/types";
 import {getData, getFullDataById} from "../../API";
@@ -9,6 +9,7 @@ import {Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recha
 import {colors} from "../../UI/colors";
 import {useMediaQuery} from "../../hooks/useMediaQuery";
 import {useTranslation} from "react-i18next";
+import AddCurrencyButton from "../../components/AddCurrencyButton";
 
 const OneCurrencyPage: FC = () => {
     const {t} = useTranslation();
@@ -31,12 +32,15 @@ const OneCurrencyPage: FC = () => {
     }
     return (
         <WrapperCurrency>
-            <InlineWrapper>
-                <Title>{data?.name}</Title>
-                <SecondaryText>
-                    ({data?.symbol})
-                </SecondaryText>
-            </InlineWrapper>
+            <SpaceBetween>
+                <InlineWrapper>
+                    <Title>{data?.name}</Title>
+                    <SecondaryText>
+                        ({data?.symbol})
+                    </SecondaryText>
+                </InlineWrapper>
+               <AddCurrencyButton element={data} />
+            </SpaceBetween>
             <ParamsWrapper>
                 {tableFields.map((element, key) =>
                     <StyledInlineWrapper key={key}>

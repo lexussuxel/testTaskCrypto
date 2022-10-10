@@ -32,6 +32,10 @@ export const StyledInlineWrapper = styled(InlineWrapper)`
   margin-bottom: 8px;
 `
 
+export const SpaceBetween = styled(InlineWrapper)`
+  justify-content: space-between;
+`
+
 export const ParamsWrapper = styled.div`
   justify-self: center;
   @media(min-width: 480px){
