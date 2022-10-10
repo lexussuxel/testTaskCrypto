@@ -42,6 +42,7 @@ export const ParamsWrapper = styled.div`
   background-color: ${colors.bright_blue};
   transition: width 2s ease-in, color 2s ease-in;
   animation-name: a;
+  color: white;
   animation-fill-mode: both;
   animation-duration: 2s;
   @keyframes a{
