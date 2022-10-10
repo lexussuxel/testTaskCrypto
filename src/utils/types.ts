@@ -25,16 +25,12 @@ export const currency = [
     'vwap24Hr'
 ]
 
-export const ItemFieldsArray =[
-    'name',
-    'symbol',
-    'supply',
-    'marketCapUsd',
-    'volumeUsd24Hr',
-    'priceUsd',
-    'changePercent24Hr',
-    'vwap24Hr'
-]
+export type ItemChart = {
+    time: Date;
+    priceUsd: string;
+    date: string;
+    circulatingSupply: string;
+}
 
 export type Item = {
     id: string;
