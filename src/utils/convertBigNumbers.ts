@@ -1,4 +1,6 @@
-export function convertBigNumbers(stringNum: string):string{
+export function convertBigNumbers(stringNum: string | undefined):string{
+    if (stringNum === undefined)
+        return ''
     const num = parseFloat(stringNum)
     switch(true){
         case (num < (10e5)) :

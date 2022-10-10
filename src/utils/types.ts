@@ -1,18 +1,39 @@
 export const tableFields = [
-    {mobileShown: true, name: 'Rank'},
-    {mobileShown: true, name: 'Name'},
-    {mobileShown: false, name: 'Price'},
-    {mobileShown: false, name: 'Market Cap'},
-    {mobileShown: false, name: 'VWAP (24Hr)'},
-    {mobileShown: false, name: 'Supply'},
-    {mobileShown: false, name: 'Volume (24Hr)'},
-    {mobileShown: true, name: 'Change (24Hr)'}
+    {mobileShown: true, name: 'Rank', id: 'rank'},
+    {mobileShown: true, name: 'Name', id: 'name'},
+    {mobileShown: false, name: 'Price', id: 'priceUsd'},
+    {mobileShown: false, name: 'Market Cap', id: 'marketCapUsd'},
+    {mobileShown: false, name: 'VWAP (24Hr)', id: 'vwap24Hr'},
+    {mobileShown: false, name: 'Supply', id: 'supply'},
+    {mobileShown: false, name: 'Volume (24Hr)', id: 'volumeUsd24Hr'},
+    {mobileShown: true, name: 'Change (24Hr)', id: 'changePercent24Hr'}
 ]
 
-export const tableFieldsPhone = [
-    'Name',
-    'Price',
-    'Change (24Hr)'
+export const convertable = [
+    'priceUsd',
+    'supply',
+    'marketCapUsd',
+    'volumeUsd24Hr',
+    'changePercent24Hr',
+    'vwap24Hr'
+]
+
+export const currency = [
+    'marketCapUsd',
+    'volumeUsd24Hr',
+    'priceUsd',
+    'vwap24Hr'
+]
+
+export const ItemFieldsArray =[
+    'name',
+    'symbol',
+    'supply',
+    'marketCapUsd',
+    'volumeUsd24Hr',
+    'priceUsd',
+    'changePercent24Hr',
+    'vwap24Hr'
 ]
 
 export type Item = {

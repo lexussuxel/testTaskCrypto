@@ -5,10 +5,10 @@ export const UnderHeaderWrapper = styled(PlayingLine)`
   justify-self: center;
   
   @media (min-width: 480px) {
-    height: 25vh;
+    min-height: 25vh;
   }
   @media (max-width: 480px) {
-    height: 5vh;
+    height: auto;
   }
 `
 
@@ -21,7 +21,7 @@ export const ItemWrapper = styled.div`
   border: 2px solid rgba(255, 222, 173, 0);
   border-radius: 5px;
   @media (min-width: 480px) {
-    margin: 10px 60px;
+    margin: 10px 60px 15vh 60px;
     :hover {
       animation-duration: 1s;
       animation-fill-mode: forwards;

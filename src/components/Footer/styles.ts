@@ -16,5 +16,5 @@ export const FooterWrapper = styled(PlayingLine)`
 `
 
 export const Title = styled.div`
-  opacity: 0.5;
+  
 `

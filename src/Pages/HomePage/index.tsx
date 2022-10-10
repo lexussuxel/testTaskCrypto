@@ -4,13 +4,14 @@ import {getData} from "../../API";
 import {useNavigate} from "react-router-dom";
 import {  StyledTable, StyledTHead, StyledTBody, StyledTd, StyledTh, StyledTr, WrapperTable, StyledButtonHome } from './styles';
 import {convertBigNumbers} from "../../utils/convertBigNumbers";
-import {Item, tableFields, tableFieldsPhone} from "../../utils/types";
+import {Item, tableFields} from "../../utils/types";
 import AddCurrencyButton from "../../components/AddCurrencyButton";
+import {useTranslation} from "react-i18next";
 
 
 
 const HomePage: FC = () => {
-
+    const {t} = useTranslation();
    const navigate = useNavigate();
    const [data, setData] = useState<Array<Item>>([]);
    const [countOfPages, setCountOfPages] = useState<number>(1);
@@ -30,7 +31,7 @@ const HomePage: FC = () => {
             <StyledTable>
                     <StyledTHead>
                         <StyledTr>
-                            {tableFields.map((a, key)=> <StyledTh key={key} mobileShown={a.mobileShown}>{a.name}</StyledTh>)}
+                            {tableFields.map((a, key)=> <StyledTh key={key} mobileShown={a.mobileShown}>{t(`Currency.${a.id}`)}</StyledTh>)}
                         </StyledTr>
                     </StyledTHead>
 
@@ -59,7 +60,7 @@ const HomePage: FC = () => {
             </StyledTable>
                 </WrapperTable>
                 {countOfPages?
-                    <StyledButtonHome onClick={changeCountOfPages}>View more</StyledButtonHome>
+                    <StyledButtonHome onClick={changeCountOfPages}>{t(`View more`)}</StyledButtonHome>
                     : null
                 }
 

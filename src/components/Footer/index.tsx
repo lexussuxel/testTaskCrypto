@@ -1,14 +1,15 @@
 import {FC} from 'react';
 import { ColumnWrapper } from '../../UI';
 import { FooterWrapper, Title } from './styles';
+import {useTranslation} from "react-i18next";
 
 const Footer :FC = () => {
-
+    const {t} = useTranslation();
     return (
         <FooterWrapper>
             <ColumnWrapper>
                 <Title>
-                    This application was developed for educational purposes by Alexandra Danilevich
+                    {t('Footer.Description')}
                 </Title>
             </ColumnWrapper>
 

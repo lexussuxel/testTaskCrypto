@@ -18,5 +18,5 @@ export async function getData(params?: IParams): Promise<AxiosResponse>{
 }
 
 export async function getFullDataById(params:IFullParams): Promise<AxiosResponse>{
-    return     await axios.get(`https://api.coincap.io/v2/assets/${params.id}/history`, {params: {interval: params.interval}})
+    return await axios.get(`https://api.coincap.io/v2/assets/${params.id}/history`, {params: {interval: params.interval}})
 }
