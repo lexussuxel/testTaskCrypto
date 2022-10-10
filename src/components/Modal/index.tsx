@@ -12,19 +12,7 @@ interface IModalProps{
 
 
 const Modal: FC<IModalProps> = ({isOpen, setIsOpen, onClose, price}) => {
-    const element = useMemo(()=> document.createElement('div'), [])
     const [inputValue, setInputValue]= useState<number>(0)
-
-    useEffect(() => {
-        const modalRootElement = document.querySelector('#modal');
-        if (isOpen) {
-            modalRootElement?.appendChild(element);
-            return () => {
-                modalRootElement?.removeChild(element);
-            };
-        } 
-        return;
-    }, [isOpen]);
 
     const exitFromModal = ()=>{
         setInputValue(0)
@@ -37,7 +25,7 @@ const Modal: FC<IModalProps> = ({isOpen, setIsOpen, onClose, price}) => {
         exitFromModal();
     }
 
-    return createPortal (
+    return (
         <WrapperModal active={isOpen} onClick={exitFromModal}>
             <ContentModal onClick={(e) => e.stopPropagation()}>
                 <Title>Enter count of currency</Title>
@@ -51,7 +39,7 @@ const Modal: FC<IModalProps> = ({isOpen, setIsOpen, onClose, price}) => {
                 </form>
 
             </ContentModal>
-        </WrapperModal>, element);
+        </WrapperModal>);
 };
 
 export default Modal;

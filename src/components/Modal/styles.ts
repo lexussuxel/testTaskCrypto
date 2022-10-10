@@ -13,10 +13,10 @@ export const WrapperModal = styled.div<IStyleProps>`
   top: 0;
   left: 0;
   z-index: 1;
-  display: flex;
   justify-content: center;
   align-items: center;
-  opacity: ${(props) => (props.active ? '1' : '0')};
+  display: ${(props) => (props.active ? 'flex' : 'none')};
+  
 `;
 
 export const ContentModal = styled.div`
