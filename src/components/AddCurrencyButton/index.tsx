@@ -12,9 +12,9 @@ interface IAddCurrencyButtonProps {
 }
 
 const AddCurrencyButton:FC<IAddCurrencyButtonProps> = ({element, style}) => {
-    const {t} = useTranslation();
     if (element === undefined)
         return null;
+    const {t} = useTranslation();
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const dispatch = useAppDispatch();
 

@@ -9,7 +9,7 @@ import styled from "@emotion/styled";
 import UnderHeader from "./components/UnderHeader";
 import Footer from "./components/Footer";
 import {withTranslation} from "react-i18next";
-import './localization/i18n'
+
 
 const AppWrapper = styled.div`
   display: flex;
