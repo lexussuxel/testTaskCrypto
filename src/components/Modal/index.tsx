@@ -1,5 +1,4 @@
-import {Dispatch, FC, FormEvent, SetStateAction, useEffect, useMemo, useState} from 'react';
-import {createPortal} from "react-dom";
+import {Dispatch, FC, FormEvent, SetStateAction, useState} from 'react';
 import {ColumnWrapper, Input, SubmitButton} from '../../UI';
 import {ContentModal, WrapperModal, Title } from './styles';
 
