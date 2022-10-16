@@ -11,7 +11,6 @@ const Header: FC = ()=>{
     const navigate = useNavigate();
     const {t, i18n:{changeLanguage, language}
     } = useTranslation();
-   // const [locale, setLocale] = useState<string>('en')
     const { count, percent} = useAppSelector((state)=> state.portfolio);
     const [isActive, setIsActive]=useState<boolean>(false);
 

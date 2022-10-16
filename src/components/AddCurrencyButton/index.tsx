@@ -16,15 +16,11 @@ const AddCurrencyButton:FC<IAddCurrencyButtonProps> = ({element, style}) => {
         return null;
     const {t} = useTranslation();
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-    const dispatch = useAppDispatch();
 
     const openModal = ()=>{
         setIsOpenModal(true);
     }
 
-    const addCurrency = (count: number)=>{
-        dispatch(changeCount(element ? {...element, count}: null));
-    }
     return (
         <div>
             {style === 'coin'?
@@ -35,7 +31,7 @@ const AddCurrencyButton:FC<IAddCurrencyButtonProps> = ({element, style}) => {
                 </StyledButton>
             }
 
-            <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal} onClose={addCurrency} price={parseFloat(element.priceUsd)}></Modal>
+            <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal}  element={element}></Modal>
         </div>
     );
 };
