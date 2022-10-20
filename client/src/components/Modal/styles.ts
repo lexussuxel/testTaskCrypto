@@ -16,7 +16,7 @@ export const WrapperModal = styled.div<IStyleProps>`
   justify-content: center;
   align-items: center;
   display: ${(props) => (props.active ? 'flex' : 'none')};
-  
+
 `;
 
 export const ContentModal = styled.div`
@@ -33,5 +33,5 @@ export const ContentModal = styled.div`
 `;
 
 export const Title = styled.h3`
-  
+
 `

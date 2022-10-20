@@ -41,12 +41,13 @@ export const InfoWrapper = styled.div`
   align-self: center;
 
 `
-interface IButtonProps{
-    visible?:boolean;
+
+interface IButtonProps {
+    visible?: boolean;
 }
 
 export const ButtonWrapper = styled.div<IButtonProps>`
-  ${({visible})=>visible? null:'display: none;'};
+  ${({visible}) => visible ? null : 'display: none;'};
   justify-self: right;
 `
 export const StyledForm = styled.form`

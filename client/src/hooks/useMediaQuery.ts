@@ -5,7 +5,7 @@ export const useMediaQuery = (query: string) => {
     const [matches, setMatches] = useState(mediaMatch.matches);
 
     useEffect(() => {
-        const handler = (e:MediaQueryListEvent) => setMatches(e.matches);
+        const handler = (e: MediaQueryListEvent) => setMatches(e.matches);
         mediaMatch.addListener(handler);
         return () => mediaMatch.removeListener(handler);
     });

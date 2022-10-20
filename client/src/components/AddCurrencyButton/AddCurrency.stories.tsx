@@ -22,7 +22,7 @@ Small.decorators = [
 ];
 
 export const Large = Template.bind({});
-Large.args = { element: undefined};
+Large.args = {element: undefined};
 Large.decorators = [
     (story) => <MocStore>{story()}</MocStore>
 ];

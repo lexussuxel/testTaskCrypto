@@ -12,10 +12,11 @@ export const WrapperHeader = styled(WrapperBase)`
   @media (min-width: 480px) {
   }
   @media (max-width: 480px) {
-    
+
   }
 `
-interface SideBarProps{
+
+interface SideBarProps {
     isActive: boolean;
 }
 
@@ -25,11 +26,12 @@ export const WrapperHeaderContent = styled.div<SideBarProps>`
   height: inherit;
   flex-direction: row;
   justify-content: space-between;
-  @media(min-width: 480px){
+  z-index: 5;
+  @media (min-width: 480px) {
     margin: 0 10%;
   }
-  @media(max-width: 480px){
-    z-index: 100;
+  @media (max-width: 480px) {
+
     background-color: white;
     transition: left 0.3s ease-in;
     width: 75%;
@@ -40,37 +42,37 @@ export const WrapperHeaderContent = styled.div<SideBarProps>`
     flex-direction: column;
     box-shadow: 0 10px 70px ${colors.shadow};
   }
-  
+
 `
 
 export const MenuIcon = styled(Menu)`
-    display: none;
-    @media(max-width: 480px){
-      display: flex;
-      height: 100%;
-      width: max-content;
-      fill: ${colors.main_blue};
-    }
+  display: none;
+  @media (max-width: 480px) {
+    display: flex;
+    height: 100%;
+    width: max-content;
+    fill: ${colors.main_blue};
+  }
 `
 export const CrossIcon = styled(Cross)`
-    display: none;
-    @media(max-width: 480px){
-      display: flex;
-      height: 60px;
-      margin-left: auto;
-      width: max-content;
-      fill: ${colors.main_blue};
-    }
+  display: none;
+  @media (max-width: 480px) {
+    display: flex;
+    height: 60px;
+    margin-left: auto;
+    width: max-content;
+    fill: ${colors.main_blue};
+  }
 `
 export const ColumnWrapperHeader = styled(ColumnWrapper)`
-  div{
+  div {
     height: auto;
   }
 
 `
 
 export const StyledInlineWrapper = styled(InlineWrapper)`
-  @media(max-width: 480px){
+  @media (max-width: 480px) {
     flex-direction: column;
     width: 100%;
     text-align: center;
@@ -81,24 +83,27 @@ export const SwitchWrapper = styled.div`
   border: 1px solid ${colors.main_grey};
   border-radius: 5px;
   flex-direction: row;
-  @media(max-width: 480px){
+  @media (max-width: 480px) {
     margin-bottom: 20px;
   }
   margin-right: 10px;
 `
-interface ISingleSwitch{
+
+interface ISingleSwitch {
     set?: boolean;
 }
 
 export const SingleSwitch = styled.button<ISingleSwitch>`
   border: none;
-  background-color: ${({set})=> set?colors.secondary_grey: 'transparent'};
+  background-color: ${({set}) => set ? colors.secondary_grey : 'transparent'};
   padding: 5px;
   border-radius: 5px;
-  :hover{
+
+  :hover {
     background-color: ${colors.secondary_grey};
   }
-  @media(max-width: 480px){
+
+  @media (max-width: 480px) {
     font-size: 20px;
   }
 `
@@ -109,7 +114,7 @@ export const HeaderButtonWrapper = styled.a`
   padding: 5px;
   color: ${colors.main_grey};
   height: inherit;
-  @media(max-width: 480px){
+  @media (max-width: 480px) {
     width: 90%;
     background-color: ${colors.secondary_grey};
     margin: 10px 0;
@@ -117,11 +122,13 @@ export const HeaderButtonWrapper = styled.a`
     border-radius: 10px;
     box-shadow: 0 0 10px ${colors.shadow_2};
   }
+
   :hover {
     background: ${colors.secondary_grey};
 
   }
-  .p{
+
+  .p {
     text-align: center;
   }
 `

@@ -1,9 +1,9 @@
 import {FC} from 'react';
-import { ColumnWrapper } from '../../UI';
-import { FooterWrapper, Title } from './styles';
+import {ColumnWrapper} from '../../UI';
+import {FooterWrapper, Title} from './styles';
 import {useTranslation} from "react-i18next";
 
-const Footer :FC = () => {
+const Footer: FC = () => {
     const {t} = useTranslation();
     return (
         <FooterWrapper>

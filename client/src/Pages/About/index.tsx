@@ -1,6 +1,6 @@
 import {FC} from 'react';
-import {ColumnWrapper, InlineWrapper, WrapperComponents } from '../../UI';
-import {Title, Description, StyledLink, Text} from './styles'
+import {ColumnWrapper, InlineWrapper, WrapperComponents} from '../../UI';
+import {Description, StyledLink, Text, Title} from './styles'
 import {useTranslation} from "react-i18next";
 
 const About: FC = () => {
@@ -20,7 +20,8 @@ const About: FC = () => {
                 </InlineWrapper>
                 <InlineWrapper>
                     <Text>LinkedIn:</Text>
-                    <StyledLink href={'https://www.linkedin.com/in/alexandra-danilevich-a70579231/'}>Alexandra Danilevich</StyledLink>
+                    <StyledLink href={'https://www.linkedin.com/in/alexandra-danilevich-a70579231/'}>Alexandra
+                        Danilevich</StyledLink>
                 </InlineWrapper>
 
 

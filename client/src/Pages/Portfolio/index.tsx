@@ -1,18 +1,28 @@
 import {FC, useState} from 'react';
 import {ColumnWrapper, Input, StyledButton, SubmitButton} from '../../UI';
 import {useAppSelector} from "../../hooks/useTypedSelector";
-import {ItemWrapper, PortfolioWrapper, StyledHr, Title, ButtonWrapper, InfoWrapper, StyledForm, StyledInlineWrapper, ItemDescription } from './styles';
+import {
+    ButtonWrapper,
+    InfoWrapper,
+    ItemDescription,
+    ItemWrapper,
+    PortfolioWrapper,
+    StyledForm,
+    StyledHr,
+    StyledInlineWrapper,
+    Title
+} from './styles';
 import {ShortItem} from "../../utils/types";
 import {useAppDispatch} from "../../hooks/useTypedDispatch";
 import {changeCount, remove} from "../../store/reducers/portfolioSlice";
 import {useTranslation} from "react-i18next";
 
-const Portfolio: FC= () => {
+const Portfolio: FC = () => {
     const {t} = useTranslation();
-    const { count, percent, portfolio} = useAppSelector((state)=> state.portfolio);
+    const {count, percent, portfolio} = useAppSelector((state) => state.portfolio);
     const [inputValue, setInputValue] = useState<number>(0);
     const [checkedValue, setCheckedValue] = useState<string>('');
-    const changeCheckedValue = (element: ShortItem)=>{
+    const changeCheckedValue = (element: ShortItem) => {
         setCheckedValue(element.id);
         setInputValue(element.count)
     }

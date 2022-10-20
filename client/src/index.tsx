@@ -8,17 +8,17 @@ import {PersistGate} from "redux-persist/integration/react";
 import './localization/i18n'
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-      <Provider store={store}>
-          <PersistGate loading={null} persistor={persist}>
-              <HashRouter>
-                  <App />
-              </HashRouter>
-          </PersistGate>
-      </Provider>
+    <React.StrictMode>
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persist}>
+                <HashRouter>
+                    <App/>
+                </HashRouter>
+            </PersistGate>
+        </Provider>
 
-  </React.StrictMode>
+    </React.StrictMode>
 );

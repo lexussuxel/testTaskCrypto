@@ -1,8 +1,6 @@
 import React, {FC, useState} from 'react';
 import {Item} from "../../utils/types";
 import {CoinsIcon, StyledButton} from "../../UI";
-import {useAppDispatch} from "../../hooks/useTypedDispatch";
-import {changeCount} from "../../store/reducers/portfolioSlice";
 import Modal from "../Modal";
 import {useTranslation} from "react-i18next";
 
@@ -11,19 +9,19 @@ interface IAddCurrencyButtonProps {
     style?: string;
 }
 
-const AddCurrencyButton:FC<IAddCurrencyButtonProps> = ({element, style}) => {
+const AddCurrencyButton: FC<IAddCurrencyButtonProps> = ({element, style}) => {
     if (element === undefined)
         return null;
     const {t} = useTranslation();
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
-    const openModal = ()=>{
+    const openModal = () => {
         setIsOpenModal(true);
     }
 
     return (
         <div>
-            {style === 'coin'?
+            {style === 'coin' ?
                 <CoinsIcon onClick={openModal}/>
                 :
                 <StyledButton onClick={openModal}>
@@ -31,7 +29,7 @@ const AddCurrencyButton:FC<IAddCurrencyButtonProps> = ({element, style}) => {
                 </StyledButton>
             }
 
-            <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal}  element={element}></Modal>
+            <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal} element={element}></Modal>
         </div>
     );
 };

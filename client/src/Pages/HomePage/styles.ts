@@ -38,19 +38,19 @@ export const StyledTr = styled.tr`
   }
 `
 
-interface ITableProps{
+interface ITableProps {
     mobileShown?: boolean;
 }
 
 export const StyledTh = styled.th<ITableProps>`
     @media(max-width: 480px){
-      display: ${({mobileShown})=> mobileShown?"table-cell":"none"}
+      display: ${({mobileShown}) => mobileShown ? "table-cell" : "none"}
     }
 
 `
 export const StyledTd = styled.td<ITableProps>`
   @media(max-width: 480px){
-    display: ${({mobileShown})=> mobileShown?"table-cell":"none"}
+    display: ${({mobileShown}) => mobileShown ? "table-cell" : "none"}
   }
 `
 

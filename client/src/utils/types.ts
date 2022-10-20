@@ -35,8 +35,8 @@ export type ItemChart = {
 export type Item = {
     id: string;
     rank: string;
-    symbol:string;
-    name:string;
+    symbol: string;
+    name: string;
     supply: string;
     maxSupply: string;
     marketCapUsd: string;

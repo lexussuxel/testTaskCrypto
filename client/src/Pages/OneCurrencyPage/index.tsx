@@ -1,5 +1,14 @@
 import {FC, useEffect, useState} from 'react';
-import {FieldDescription, FieldName, ParamsWrapper, SecondaryText, StyledInlineWrapper, Title, WrapperCurrency, SpaceBetween } from './styles';
+import {
+    FieldDescription,
+    FieldName,
+    ParamsWrapper,
+    SecondaryText,
+    SpaceBetween,
+    StyledInlineWrapper,
+    Title,
+    WrapperCurrency
+} from './styles';
 import {useParams} from "react-router-dom";
 import {convertable, currency, Item, ItemChart, tableFields} from "../../utils/types";
 import {getData, getFullDataById} from "../../API";
@@ -39,7 +48,7 @@ const OneCurrencyPage: FC = () => {
                         ({data?.symbol})
                     </SecondaryText>
                 </InlineWrapper>
-               <AddCurrencyButton element={data} />
+                <AddCurrencyButton element={data}/>
             </SpaceBetween>
             <ParamsWrapper>
                 {tableFields.map((element, key) =>
@@ -49,15 +58,16 @@ const OneCurrencyPage: FC = () => {
                     </StyledInlineWrapper>
                 )}
             </ParamsWrapper>
-                <ResponsiveContainer width="100%" aspect={isPhone ? 1 : 2} >
-                    <AreaChart data={chartData} margin={{top: 30, right: 0, left: 0, bottom: 0}} style={{position: isPhone?'static':'relative'}}>
-                        <YAxis domain={['dataMin', 'auto']}/>
-                        <XAxis dataKey='time' display={'none'}/>
-                        <Tooltip wrapperStyle={style}/>
-                        <Area type="monotone" dataKey="priceUsd" stroke={colors.main_blue} fillOpacity={0.5}
-                              fill={colors.bright_blue}/>
-                    </AreaChart>
-                </ResponsiveContainer>
+            <ResponsiveContainer width="100%" aspect={isPhone ? 1 : 2}>
+                <AreaChart data={chartData} margin={{top: 30, right: 0, left: 0, bottom: 0}}
+                           style={{position: isPhone ? 'static' : 'relative'}}>
+                    <YAxis domain={['dataMin', 'auto']}/>
+                    <XAxis dataKey='time' display={'none'}/>
+                    <Tooltip wrapperStyle={style}/>
+                    <Area type="monotone" dataKey="priceUsd" stroke={colors.main_blue} fillOpacity={0.5}
+                          fill={colors.bright_blue}/>
+                </AreaChart>
+            </ResponsiveContainer>
         </WrapperCurrency>
     );
 };

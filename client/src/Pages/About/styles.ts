@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import {colors} from "../../UI/colors";
 
 export const Title = styled.h1`
-    color: ${colors.main_blue};
+  color: ${colors.main_blue};
 `
 
 export const Description = styled.div`
@@ -13,7 +13,7 @@ export const Description = styled.div`
 `
 
 export const StyledLink = styled.a`
-    color: ${colors.main_blue};
+  color: ${colors.main_blue};
 
 `
 export const Text = styled.span`
