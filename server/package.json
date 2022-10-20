@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@trpc/server": "^10.0.0-proxy-beta.23",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "ts-node": "^10.9.1",
