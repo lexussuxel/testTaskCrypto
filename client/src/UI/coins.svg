@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px"
+     y="0px"
+     width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"
+     stroke="current">
+<path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M70,50.001c-1.543-1.547-3.679-2.501-6.035-2.501h-7.717c-3.452,0-6.25,2.797-6.25,6.251c0,3.452,2.798,6.249,6.25,6.249h7.503
+	C67.199,60,70,62.796,70,66.248c0,3.455-2.801,6.249-6.249,6.249h-7.717c-2.36,0-4.493-0.954-6.036-2.497
+	c1.543,1.543,3.676,2.497,6.036,2.497h7.717c3.448,0,6.249-2.794,6.249-6.249C70,62.796,67.199,60,63.751,60h-7.503
+	c-3.452,0-6.25-2.797-6.25-6.249c0-3.454,2.798-6.251,6.25-6.251h7.717C66.321,47.5,68.457,48.454,70,50.001z"/>
+    <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M59.996,72.501V77.5V72.501z"/>
+    <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M59.996,42.501V47.5V42.501z"/>
+    <circle fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="60"
+            cy="60" r="30"/>
+    <path fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M20,50.001c0-16.569,13.433-30,30-30c5.719,0,11.043,1.628,15.591,4.404C60.321,15.777,50.848,10,40,10
+	c-16.569,0-30,13.433-30,30.001c0,10.851,5.779,20.326,14.408,25.594C21.629,61.048,20,55.722,20,50.001z"/>
+    <path fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M30,60c0-16.569,13.433-30.001,30-30.001c5.719,0,11.045,1.629,15.594,4.407C70.324,25.778,60.85,20.001,50,20.001
+	c-16.567,0-30,13.431-30,30c0,10.851,5.779,20.324,14.408,25.594C31.629,71.045,30,65.719,30,60z"/>
+</svg>
