@@ -11,7 +11,6 @@ import {
 } from './styles';
 import {useParams} from "react-router-dom";
 import {convertable, currency, Item, ItemChart, tableFields} from "../../utils/types";
-import {getData, getFullDataById} from "../../API";
 import {InlineWrapper} from '../../UI';
 import {convertBigNumbers} from "../../utils/convertBigNumbers";
 import {Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts';
@@ -19,23 +18,30 @@ import {colors} from "../../UI/colors";
 import {useMediaQuery} from "../../hooks/useMediaQuery";
 import {useTranslation} from "react-i18next";
 import AddCurrencyButton from "../../components/AddCurrencyButton";
+import {trpc} from "../../utils/trpc";
 
 const OneCurrencyPage: FC = () => {
     const {t} = useTranslation();
     const {id} = useParams();
-    const [data, setData] = useState<Item>();
+    const [data, setData] = useState<Item | undefined>(undefined);
     const [chartData, setChartData] = useState<Array<ItemChart>>([]);
     const isPhone = useMediaQuery('(max-width: 480px)');
+    const res = trpc.getData.useQuery({search: id || ''});
+    const chartRes = trpc.getChartData.useQuery({id: id || "", interval: 'h2'});
     useEffect(() => {
-        getData({search: id || ''}).then((res) => {
-            setData(res.data.data[0])
-        })
-        getFullDataById({id: id || "", interval: 'h2'}).then((res) => {
-            setChartData(res.data.data.map((element: ItemChart) => {
+        if(res.data)
+        {
+            setData(res.data?.data[0])
+        }
+    }, [ res.status])
+    useEffect(() => {
+        if(chartRes.data)
+        {
+            setChartData(chartRes.data?.data.map((element: ItemChart) => {
                 return {...element, time: new Date(element.time)}
             }))
-        })
-    }, [id])
+        }
+    }, [ chartRes.status])
     const style = {
         display: isPhone ? 'none' : 'initial',
     }
@@ -48,7 +54,10 @@ const OneCurrencyPage: FC = () => {
                         ({data?.symbol})
                     </SecondaryText>
                 </InlineWrapper>
-                <AddCurrencyButton element={data}/>
+                {data ?
+                    <AddCurrencyButton element={data}/>
+                    : null
+                }
             </SpaceBetween>
             <ParamsWrapper>
                 {tableFields.map((element, key) =>

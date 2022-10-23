@@ -1,20 +1,20 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ColumnWrapper} from "../../UI";
-import {getData} from "../../API";
 import {useNavigate} from "react-router-dom";
 import {InlineItemsWrapper, ItemDescription, ItemTitle, ItemWrapper, UnderHeaderWrapper} from './styles';
 import {convertBigNumbers} from "../../utils/convertBigNumbers";
 import {Item} from "../../utils/types";
+import {trpc} from "../../utils/trpc";
 
 const UnderHeader: FC = () => {
-    const response = getData({limit: 3});
     const navigate = useNavigate();
     const [data, setData] = useState<Array<Item>>([]);
+    const res = trpc.getData.useQuery({ limit:3});
     useEffect(() => {
-        response.then((res) => {
-            setData(res.data.data)
-        })
-    }, [])
+        res.data ?
+            setData(res.data?.data)
+            : null
+    }, [res.status])
     return (
         <UnderHeaderWrapper>
             <ColumnWrapper>

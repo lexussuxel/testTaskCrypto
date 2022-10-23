@@ -1,6 +1,5 @@
 import {FC, useEffect, useState} from 'react';
 import {ColumnWrapper, WrapperComponents} from "../../UI";
-import {getData} from "../../API";
 import {useNavigate} from "react-router-dom";
 import {
     StyledButtonHome,
@@ -24,14 +23,12 @@ const HomePage: FC = () => {
     const navigate = useNavigate();
     const [data, setData] = useState<Array<Item>>([]);
     const [countOfPages, setCountOfPages] = useState<number>(1);
-    const hello = trpc.greeting.useQuery(['greeting',{ name: 'client' }]);
-    console.log(hello)
-
+    const res = trpc.getData.useQuery({ offset: 20*(countOfPages - 1), limit:20});
     useEffect(() => {
-        getData({limit: 20, offset: data.length}).then((res) => {
-            setData(data.concat(res.data.data))
-        })
-    }, [countOfPages])
+        res.data ?
+            setData(data.concat(res.data?.data))
+            : null
+    }, [countOfPages, res.status])
     const changeCountOfPages = () => {
         setCountOfPages(countOfPages + 1);
     }
@@ -39,7 +36,6 @@ const HomePage: FC = () => {
     return (
         <div>
             <WrapperComponents>
-                <div>{hello?.data?.text}</div>
                 <ColumnWrapper>
                     <WrapperTable>
                         <StyledTable>
@@ -52,7 +48,7 @@ const HomePage: FC = () => {
 
                             <StyledTBody>
                                 {
-                                    data.map((element) =>
+                                    data.map((element:Item) =>
                                         <StyledTr key={element.id}>
                                             <StyledTd mobileShown={true}>{element.rank}</StyledTd>
                                             <StyledTd mobileShown={true}

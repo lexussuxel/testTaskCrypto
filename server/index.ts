@@ -22,11 +22,6 @@ app.use(
 );
 
 
-
-app.get('/', (req: any, res: any) => {
-    res.send('Express + TypeScript Servasdasder');
-});
-
 htt.createServer(app).listen(port || '4200', () => {
     console.log(`Server is running at http://localhost:${port||4200}`);
 });

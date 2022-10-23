@@ -38,7 +38,6 @@ const Header: FC = () => {
 
     return (
         <WrapperHeader>
-
             <Logo onClick={() => navigate('/')}>CryptoMan</Logo>
             <MenuIcon onClick={() => setIsActive(true)}/>
             <WrapperHeaderContent isActive={isActive}>

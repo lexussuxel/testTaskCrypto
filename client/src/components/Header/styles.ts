@@ -9,6 +9,7 @@ export const WrapperHeader = styled(WrapperBase)`
   top: 0;
   height: 60px;
   width: 100vw;
+  z-index: 5;
   @media (min-width: 480px) {
   }
   @media (max-width: 480px) {
@@ -26,7 +27,6 @@ export const WrapperHeaderContent = styled.div<SideBarProps>`
   height: inherit;
   flex-direction: row;
   justify-content: space-between;
-  z-index: 5;
   @media (min-width: 480px) {
     margin: 0 10%;
   }
