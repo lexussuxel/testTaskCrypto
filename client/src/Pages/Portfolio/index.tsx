@@ -1,5 +1,5 @@
 import {FC, useState} from 'react';
-import {ColumnWrapper, Input, StyledButton, SubmitButton} from '../../UI';
+import {ColumnWrapper, Input} from '../../UI';
 import {useAppSelector} from "../../hooks/useTypedSelector";
 import {
     ButtonWrapper,
@@ -16,6 +16,7 @@ import {ShortItem} from "../../utils/types";
 import {useAppDispatch} from "../../hooks/useTypedDispatch";
 import {changeCount, remove} from "../../store/reducers/portfolioSlice";
 import {useTranslation} from "react-i18next";
+import StyledButton from "../../components/StyledButton"
 
 const Portfolio: FC = () => {
     const {t} = useTranslation();
@@ -55,10 +56,10 @@ const Portfolio: FC = () => {
                                                    onChange={(e) => {
                                                        setInputValue(parseFloat(e.target.value))
                                                    }}/>
-                                            <SubmitButton type='submit'
-                                                          disabled={isNaN(inputValue)}>{t('Portfolio.Submit')}</SubmitButton>
-                                            <SubmitButton type='button'
-                                                          onClick={() => handleRemove(element)}>{t('Portfolio.Delete')}</SubmitButton>
+                                            <StyledButton type='submit'
+                                                          disabled={isNaN(inputValue)}>{t('Portfolio.Submit')}</StyledButton>
+                                            <StyledButton type='button'
+                                                          onClick={() => handleRemove(element)}>{t('Portfolio.Delete')}</StyledButton>
                                         </StyledForm>
                                         : <ItemDescription>{element.count} {element.symbol}</ItemDescription>
 

@@ -1,6 +1,7 @@
 import React, {FC, useState} from 'react';
 import {Item} from "../../utils/types";
-import {CoinsIcon, StyledButton} from "../../UI";
+import {CoinsIcon} from "../../UI";
+import StyledButton from "../StyledButton"
 import Modal from "../Modal";
 import {useTranslation} from "react-i18next";
 

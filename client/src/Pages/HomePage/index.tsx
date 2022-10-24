@@ -14,6 +14,7 @@ import {
 import {convertBigNumbers} from "../../utils/convertBigNumbers";
 import {Item, tableFields} from "../../utils/types";
 import AddCurrencyButton from "../../components/AddCurrencyButton";
+import StyledButton from "../../components/StyledButton"
 import {useTranslation} from "react-i18next";
 import { trpc } from '../../utils/trpc';
 
@@ -75,7 +76,7 @@ const HomePage: FC = () => {
                         </StyledTable>
                     </WrapperTable>
                     {countOfPages ?
-                        <StyledButtonHome onClick={changeCountOfPages}>{t(`View more`)}</StyledButtonHome>
+                        <StyledButtonHome><StyledButton onClick={changeCountOfPages}>{t(`View more`)}</StyledButton></StyledButtonHome>
                         : null
                     }
 

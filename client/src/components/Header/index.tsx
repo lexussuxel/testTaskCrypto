@@ -1,5 +1,5 @@
 import {FC, useState} from "react";
-import {Logo, StyledButton} from "../../UI";
+import {Logo} from "../../UI";
 import {useNavigate} from "react-router-dom";
 import {
     ColumnWrapperHeader,
@@ -12,6 +12,7 @@ import {
     WrapperHeader,
     WrapperHeaderContent
 } from "./styles";
+import StyledButton from "../StyledButton"
 import {useAppSelector} from "../../hooks/useTypedSelector";
 import {convertBigNumbers} from "../../utils/convertBigNumbers";
 import {useTranslation} from "react-i18next";

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import {ReactComponent as Coins} from "./coins.svg"
 import {colors} from "./colors";
+import {StyledButtonWrapper} from "../components/StyledButton/styles";
 
 
 export const WrapperBase = styled.div`
@@ -63,13 +64,13 @@ export const PlayingLine = styled(WrapperBase)`
   animation-name: play;
   @keyframes play {
     0% {
-      background-position: 0% 50%;
+      background-position: 0 50%;
     }
     50% {
       background-position: 100% 50%;
     }
     100% {
-      background-position: 0% 50%;
+      background-position: 0 50%;
     }
   }
 `
@@ -124,51 +125,21 @@ export const CoinsIcon = styled(Coins)`
   }
 
 `
-
-export const StyledButton = styled.button`
-  display: flex;
-  height: auto;
-  text-align: center;
-  color: white;
-  padding: 10px 15px;
-  margin: 5px;
-  background-color: ${colors.main_blue};
-  border-style: unset;
-  border-radius: 20px;
-  cursor: pointer;
-
-  :hover {
-    background-color: ${colors.secondary_blue};
-    box-shadow: 0 0 20px ${colors.shadow_2};
-  }
-`
 export const Input = styled.input`
   display: flex;
   padding: 5px;
   font-size: 15px;
   border-radius: 10px;
-  border-color: #cdcdcd;
+  border-color: ${colors.secondary_grey};
   border-style: solid;
 
   :hover {
-    border-color: #737373;
+    border-color: ${colors.main_grey};
   }
 
   :focus-visible {
-    border-color: #2698e8;
+    border-color: ${colors.main_blue};
     outline: none;
   }
 `
-export const SubmitButton = styled.button`
-  cursor: pointer;
-  margin-top: 5px;
-  color: white;
-  background-color: #2698e8;
-  border-radius: 10px;
-  padding: 5px;
-  border: none;
 
-  :disabled {
-    background-color: #737373;
-  }
-`

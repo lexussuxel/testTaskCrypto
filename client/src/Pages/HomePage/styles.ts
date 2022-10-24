@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import {StyledButton} from "../../UI";
 import {colors} from "../../UI/colors";
 
 
@@ -54,7 +53,7 @@ export const StyledTd = styled.td<ITableProps>`
   }
 `
 
-export const StyledButtonHome = styled(StyledButton)`
+export const StyledButtonHome = styled.div`
   align-self: center;
   margin: 20px 0;
 `

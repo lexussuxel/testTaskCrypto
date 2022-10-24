@@ -1,6 +1,7 @@
 import {Dispatch, FC, FormEvent, SetStateAction, useState} from 'react';
-import {ColumnWrapper, Input, SubmitButton} from '../../UI';
+import {ColumnWrapper, Input} from '../../UI';
 import {ContentModal, Title, WrapperModal} from './styles';
+import StyledButton from "../StyledButton"
 import {Item} from "../../utils/types";
 import {changeCount} from "../../store/reducers/portfolioSlice";
 import {useAppDispatch} from "../../hooks/useTypedDispatch";
@@ -43,7 +44,7 @@ const Modal: FC<IModalProps> = ({isOpen, setIsOpen, element}) => {
                         <Input type='number' value={inputValue} min="0" step='10e-4' onChange={(e) => {
                             setInputValue(parseFloat(e.target.value))
                         }}/>
-                        <SubmitButton type='submit' disabled={isNaN(inputValue)}>Submit</SubmitButton>
+                        <StyledButton type='submit' disabled={isNaN(inputValue)}>Submit</StyledButton>
                     </ColumnWrapper>
 
                 </form>

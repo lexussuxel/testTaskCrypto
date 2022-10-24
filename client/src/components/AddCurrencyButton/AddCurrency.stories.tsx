@@ -4,7 +4,7 @@ import React from "react";
 import {MocStore} from "../../stories/MocStore";
 
 export default {
-    title: 'AddCurrencyButton',
+    title: 'Buttons/AddCurrencyButton',
     component: AddCurrencyButton,
 } as ComponentMeta<typeof AddCurrencyButton>;
 
