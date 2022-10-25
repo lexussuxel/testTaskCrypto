@@ -1,5 +1,5 @@
 import {FC, useState} from 'react';
-import {ColumnWrapper, Input} from '../../UI';
+import {ColumnWrapper} from '../../UI';
 import {useAppSelector} from "../../hooks/useTypedSelector";
 import {
     ButtonWrapper,
@@ -12,6 +12,7 @@ import {
     StyledInlineWrapper,
     Title
 } from './styles';
+import Input from '../../components/Input'
 import {ShortItem} from "../../utils/types";
 import {useAppDispatch} from "../../hooks/useTypedDispatch";
 import {changeCount, remove} from "../../store/reducers/portfolioSlice";
@@ -52,7 +53,7 @@ const Portfolio: FC = () => {
                                     <div>{element.name} </div>
                                     {checkedValue === element.id ?
                                         <StyledForm onSubmit={() => handleSubmit(element)}>
-                                            <Input type='number' value={inputValue} min="0" step='10e-4'
+                                            <Input  value={inputValue}
                                                    onChange={(e) => {
                                                        setInputValue(parseFloat(e.target.value))
                                                    }}/>

@@ -34,7 +34,12 @@ export const resources = {
                 Title: 'About',
                 Description: 'This application was developed for educational purposes by Alexandra Danilevich.This simple application allows you to track the rates of cryptocurrencies, and also implements your portfolio management. The application supports two languages, as well as adapted for smartphones. Technologies: React, Redux, Typescript. '
             },
-            Coin: 'Add to portfolio'
+            Coin: 'Add to portfolio',
+            Modal: {
+                Title: 'Enter count of currency',
+                Desc: 'Total price:',
+                Submit: 'Submit'
+            }
         }
     },
     ru: {
@@ -72,7 +77,12 @@ export const resources = {
                 Title: 'О приложении',
                 Description: 'Приложение было разработано Александрой Данилевич для учебных целей. Это простое приложение позволяет отслеживать курсы криптовалют, а также реализовывает управление своим портфелем. Приложение поддерживает два языка, а так же адаптированно под смартфоны. Стек технологий: React, Redux, Typescript. '
             },
-            Coin: 'Добавить в портфель'
+            Coin: 'Добавить в портфель',
+            Modal: {
+                Title: 'Введите количество валюты',
+                Desc: 'Всего:',
+                Submit: 'Подтвердить'
+            }
         }
     }
 }

@@ -37,12 +37,6 @@ export const WrapperComponents = styled(WrapperBase)`
   }
 `
 
-export const WrapperContent = styled.div`
-  display:flex;
-  width: inherit;
-  margin:10px;
-`
-
 export const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -125,21 +119,3 @@ export const CoinsIcon = styled(Coins)`
   }
 
 `
-export const Input = styled.input`
-  display: flex;
-  padding: 5px;
-  font-size: 15px;
-  border-radius: 10px;
-  border-color: ${colors.secondary_grey};
-  border-style: solid;
-
-  :hover {
-    border-color: ${colors.main_grey};
-  }
-
-  :focus-visible {
-    border-color: ${colors.main_blue};
-    outline: none;
-  }
-`
-

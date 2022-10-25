@@ -1,10 +1,12 @@
 import {Dispatch, FC, FormEvent, SetStateAction, useState} from 'react';
-import {ColumnWrapper, Input} from '../../UI';
+import {ColumnWrapper} from '../../UI';
 import {ContentModal, Title, WrapperModal} from './styles';
 import StyledButton from "../StyledButton"
 import {Item} from "../../utils/types";
+import Input from "../Input"
 import {changeCount} from "../../store/reducers/portfolioSlice";
 import {useAppDispatch} from "../../hooks/useTypedDispatch";
+import {useTranslation} from "react-i18next";
 
 interface IModalProps {
     isOpen: boolean;
@@ -15,7 +17,7 @@ interface IModalProps {
 
 const Modal: FC<IModalProps> = ({isOpen, setIsOpen, element}) => {
     const [inputValue, setInputValue] = useState<number>(0)
-
+    const {t} = useTranslation();
     const exitFromModal = () => {
         setInputValue(0)
         setIsOpen(false);
@@ -34,17 +36,17 @@ const Modal: FC<IModalProps> = ({isOpen, setIsOpen, element}) => {
     return (
         <WrapperModal active={isOpen} onClick={exitFromModal}>
             <ContentModal onClick={(e) => e.stopPropagation()}>
-                <Title>Enter count of currency</Title>
-                <div>Total price:
+                <Title>{t('Modal.Title')}</Title>
+                <div>{t('Modal.Desc')}
                     ${isNaN(inputValue) ? 0 : (parseFloat(element?.priceUsd || "") * inputValue).toFixed(3)} +
                     ${isNaN(inputValue) ? 0 : (parseFloat(element?.priceUsd || "") * inputValue * 0.018).toFixed(3)}%
                 </div>
                 <form onSubmit={handleSubmit}>
                     <ColumnWrapper>
-                        <Input type='number' value={inputValue} min="0" step='10e-4' onChange={(e) => {
+                        <Input value={inputValue} onChange={(e) => {
                             setInputValue(parseFloat(e.target.value))
                         }}/>
-                        <StyledButton type='submit' disabled={isNaN(inputValue)}>Submit</StyledButton>
+                        <StyledButton type='submit' disabled={isNaN(inputValue)}>{t('Modal.Submit')}</StyledButton>
                     </ColumnWrapper>
 
                 </form>

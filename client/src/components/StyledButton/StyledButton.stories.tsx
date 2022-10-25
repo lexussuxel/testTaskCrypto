@@ -8,11 +8,6 @@ export default {
     argTypes: {
         backgroundColor: {control: 'color'},
     },
-    parameters:{
-        controls:{
-
-        }
-    }
 } as ComponentMeta<typeof StyledButton>;
 
 const Template: ComponentStory<typeof StyledButton> = (args) => <StyledButton {...args}/>;
@@ -33,7 +28,7 @@ export const Form = Template.bind({});
 
 
 Form.args = {
-    children: "I am styled button!",
+    children: "I am styled form button!",
     disabled: false,
     type: 'submit'
 };
