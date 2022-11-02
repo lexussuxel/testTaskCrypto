@@ -14,7 +14,6 @@
     "@trpc/client": "^10.0.0-proxy-beta.23",
     "@trpc/react-query": "^10.0.0-proxy-beta.23",
     "@trpc/server": "^10.0.0-proxy-beta.23",
-    "@types/jest": "^27.5.2",
     "@types/node": "^16.11.60",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
@@ -41,7 +40,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "cypress": "cypress open",
     "test:cypress": "start-server-and-test start http://localhost:3000 cypress",
     "eject": "react-scripts eject",
@@ -99,6 +98,7 @@
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
+    "@types/jest": "^29.2.1",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "babel-plugin-named-exports-order": "^0.0.2",
@@ -106,8 +106,10 @@
     "eslint": "^8.24.0",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-storybook": "^0.6.6",
+    "jest": "^29.2.2",
     "prop-types": "^15.8.1",
     "start-server-and-test": "^1.14.0",
+    "ts-jest": "^29.0.3",
     "webpack": "^5.74.0"
   }
 }
