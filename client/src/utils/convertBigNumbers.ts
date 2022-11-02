@@ -1,7 +1,7 @@
 export function convertBigNumbers(stringNum: string | undefined): string {
     if (stringNum === undefined)
         return ''
-    const num = parseFloat(stringNum)
+    const num = parseFloat(stringNum);
     switch (true) {
         case (num < (10e5)) :
             return `${num.toFixed(2)}`;

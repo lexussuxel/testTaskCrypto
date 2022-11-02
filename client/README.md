@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Test task "CryptoMan"
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Deploy
+
+GithubPages: [https://lexussuxel.github.io/testTaskCrypto](https://lexussuxel.github.io/testTaskCrypto).
 
 ## Available Scripts
 
