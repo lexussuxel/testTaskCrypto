@@ -45,7 +45,7 @@ export const WrapperHeaderContent = styled.div<SideBarProps>`
 
 `
 
-export const MenuIcon = styled(Menu)`
+export const MenuIcon = styled(Menu || "")`
   display: none;
   @media (max-width: 480px) {
     display: flex;
@@ -54,7 +54,7 @@ export const MenuIcon = styled(Menu)`
     fill: ${colors.main_blue};
   }
 `
-export const CrossIcon = styled(Cross)`
+export const CrossIcon = styled(Cross || "")`
   display: none;
   @media (max-width: 480px) {
     display: flex;

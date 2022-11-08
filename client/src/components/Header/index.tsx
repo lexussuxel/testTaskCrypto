@@ -44,9 +44,9 @@ const Header: FC = () => {
             <WrapperHeaderContent isActive={isActive}>
                 <CrossIcon onClick={() => setIsActive(false)}/>
                 <StyledInlineWrapper>
-                    <HeaderButtonWrapper onClick={() => navigateTo('/')}><p>{t('Header.Coins')}</p>
+                    <HeaderButtonWrapper data-testid="coins" onClick={() => navigateTo('/')}><p>{t('Header.Coins')}</p>
                     </HeaderButtonWrapper>
-                    <HeaderButtonWrapper onClick={() => navigateTo('/about')}><p>{t('Header.About')}</p>
+                    <HeaderButtonWrapper data-testId="about" onClick={() => navigateTo('/about')}><p>{t('Header.About')}</p>
                     </HeaderButtonWrapper>
                 </StyledInlineWrapper>
 

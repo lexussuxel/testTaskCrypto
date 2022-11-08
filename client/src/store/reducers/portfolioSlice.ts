@@ -8,7 +8,7 @@ const initialState: IPortfolio = {
 };
 
 const portfolioSlice = createSlice({
-    name: 'portdolioSlice',
+    name: 'portfolioSlice',
     initialState,
     reducers: {
         changeCount: (

@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import {ReactComponent as Coins} from "./coins.svg"
 import {colors} from "./colors";
-import {StyledButtonWrapper} from "../components/StyledButton/styles";
 
 
 export const WrapperBase = styled.div`
@@ -107,7 +106,7 @@ export const Logo = styled.div`
   }
 `
 
-export const CoinsIcon = styled(Coins)`
+export const CoinsIcon = styled(Coins || "")`
   display: flex;
   stroke: ${colors.main_grey};
   width: 30px;
