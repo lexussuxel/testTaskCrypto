@@ -6,7 +6,7 @@ import {useTranslation} from "react-i18next";
 const About: FC = () => {
     const {t} = useTranslation();
     return (
-        <WrapperComponents>
+        <WrapperComponents data-testid="about-page">
             <ColumnWrapper>
                 <Title>{t('About.Title')}</Title>
                 <Description>{t('About.Description')}

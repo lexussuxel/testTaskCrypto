@@ -5,4 +5,5 @@ module.exports = {
   "transform": {
       '\\.svg$': '<rootDir>/jest-svg-transformer.js',
   },
+    setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
 };

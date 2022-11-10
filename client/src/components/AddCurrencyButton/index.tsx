@@ -21,11 +21,11 @@ const AddCurrencyButton: FC<IAddCurrencyButtonProps> = ({element, style}) => {
     }
 
     return (
-        <div>
+        <div data-testid="add-currency-btn">
             {style === 'coin' ?
-                <CoinsIcon onClick={openModal}/>
+                <CoinsIcon data-testid={'coin-btn'} onClick={openModal}/>
                 :
-                <StyledButton onClick={openModal}>
+                <StyledButton data_testid={'full-btn'} onClick={openModal}>
                     {t('Coin')}
                 </StyledButton>
             }

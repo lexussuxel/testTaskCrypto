@@ -46,7 +46,7 @@ const Header: FC = () => {
                 <StyledInlineWrapper>
                     <HeaderButtonWrapper data-testid="coins" onClick={() => navigateTo('/')}><p>{t('Header.Coins')}</p>
                     </HeaderButtonWrapper>
-                    <HeaderButtonWrapper data-testId="about" onClick={() => navigateTo('/about')}><p>{t('Header.About')}</p>
+                    <HeaderButtonWrapper data-testid="about" onClick={() => navigateTo('/about')}><p>{t('Header.About')}</p>
                     </HeaderButtonWrapper>
                 </StyledInlineWrapper>
 

@@ -35,7 +35,7 @@ const HomePage: FC = () => {
     }
 
     return (
-        <div>
+        <div data-testid="main-page">
             <WrapperComponents>
                 <ColumnWrapper>
                     <WrapperTable>

@@ -34,7 +34,7 @@ const Modal: FC<IModalProps> = ({isOpen, setIsOpen, element}) => {
     }
 
     return (
-        <WrapperModal active={isOpen} onClick={exitFromModal}>
+        <WrapperModal data-testid="modal" active={isOpen} onClick={exitFromModal}>
             <ContentModal onClick={(e) => e.stopPropagation()}>
                 <Title>{t('Modal.Title')}</Title>
                 <div>{t('Modal.Desc')}

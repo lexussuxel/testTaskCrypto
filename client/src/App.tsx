@@ -12,7 +12,7 @@ import {withTranslation} from "react-i18next";
 import {trpc} from "./utils/trpc";
 import {httpBatchLink} from "@trpc/client";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
+import {ReactComponent as La} from "./iconsBeam/razrez/IShtr.svg"
 
 const AppWrapper = styled.div`
   display: flex;
@@ -37,6 +37,7 @@ const App: FC = () => {
             <QueryClientProvider client={queryClient}>
                 <AppWrapper>
                     <Header/>
+                    <La style={{height: 20}}/>
                     <UnderHeader/>
                     <Routes>
                         <Route path="/homepage" element={<HomePage/>}/>
