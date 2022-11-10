@@ -8,7 +8,7 @@ interface IInput{
 
 const Input: FC<IInput> = ({ value, onChange}) => {
     return (
-        <StyledInput type='number' value={value} min="0" step='10e-4' onChange={onChange}/>
+        <StyledInput data-testid="modal-input" type='number' value={value} min="0" step='10e-4' onChange={onChange}/>
     );
 };
 

@@ -1,18 +1,16 @@
 import styled from "@emotion/styled";
 import {colors} from "../../UI/colors";
 
-export interface IButtonWrapper{
-    disabled?: boolean;
-}
 
-export const StyledButtonWrapper = styled.button<IButtonWrapper>`
+
+export const StyledButtonWrapper = styled.button`
   display: flex;
   height: auto;
   text-align: center;
   color:${"white"};
   padding: 10px 15px;
   margin: 5px;
-  background-color: ${({disabled})=>disabled?colors.secondary_grey:colors.main_blue};
+  background-color: ${colors.main_blue};
   border-style: unset;
   border-radius: 20px;
   cursor: pointer;
@@ -23,6 +21,7 @@ export const StyledButtonWrapper = styled.button<IButtonWrapper>`
   :disabled{
     color: ${colors.main_grey};
     border: 1px solid ${colors.main_grey};
+    background-color: ${colors.secondary_grey};
     :hover{
       background-color: ${colors.secondary_grey};
       box-shadow: none;

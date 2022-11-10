@@ -1,4 +1,4 @@
-import {FC, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import {Logo} from "../../UI";
 import {useNavigate} from "react-router-dom";
 import {
@@ -6,9 +6,7 @@ import {
     CrossIcon,
     HeaderButtonWrapper,
     MenuIcon,
-    SingleSwitch,
     StyledInlineWrapper,
-    SwitchWrapper,
     WrapperHeader,
     WrapperHeaderContent
 } from "./styles";
@@ -16,7 +14,13 @@ import StyledButton from "../StyledButton"
 import {useAppSelector} from "../../hooks/useTypedSelector";
 import {convertBigNumbers} from "../../utils/convertBigNumbers";
 import {useTranslation} from "react-i18next";
+import Switch from "../Switch";
 
+interface ISwitch {
+    callback: ()=>void;
+    name:string;
+    set: boolean;
+}
 
 const Header: FC = () => {
     const navigate = useNavigate();
@@ -25,7 +29,20 @@ const Header: FC = () => {
     } = useTranslation();
     const {count, percent} = useAppSelector((state) => state.portfolio);
     const [isActive, setIsActive] = useState<boolean>(false);
-
+    const [switches, setSwitches] = useState<Array<ISwitch>>([]);
+    useEffect(() => {
+        setSwitches([{
+                callback: () => switchLng('en'),
+                name: "en",
+                set: language === 'en'
+            },
+                {
+                    callback: () => switchLng('ru'),
+                    name: "ru",
+                    set: language === "ru"
+                }]
+        )
+    }, [language])
     const navigateTo = (to: string) => {
         navigate(to);
         setIsActive(false);
@@ -46,17 +63,13 @@ const Header: FC = () => {
                 <StyledInlineWrapper>
                     <HeaderButtonWrapper data-testid="coins" onClick={() => navigateTo('/')}><p>{t('Header.Coins')}</p>
                     </HeaderButtonWrapper>
-                    <HeaderButtonWrapper data-testid="about" onClick={() => navigateTo('/about')}><p>{t('Header.About')}</p>
+                    <HeaderButtonWrapper data-testid="about" onClick={() => navigateTo('/about')}>
+                        <p>{t('Header.About')}</p>
                     </HeaderButtonWrapper>
                 </StyledInlineWrapper>
 
                 <StyledInlineWrapper>
-                    <SwitchWrapper>
-                        <SingleSwitch onClick={() => switchLng('en')}
-                                      set={language === 'en'}>{t('Header.en')}</SingleSwitch>
-                        <SingleSwitch onClick={() => switchLng('ru')}
-                                      set={language === 'ru'}>{t('Header.ru')}</SingleSwitch>
-                    </SwitchWrapper>
+                    <Switch switches={switches}/>
                     <StyledButton onClick={() => navigateTo('/portfolio')}>
                         <ColumnWrapperHeader>
                             <div>{t('Portfolio.Portfolio')}</div>
