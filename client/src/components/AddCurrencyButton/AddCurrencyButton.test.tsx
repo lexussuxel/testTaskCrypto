@@ -7,7 +7,6 @@ import {MocStore} from "../../utils/mocStrore";
 
 describe(('test add currency button'), ()=>{
 
-
     describe(('tests for coin style'), ()=>{
 
         beforeEach(()=>{

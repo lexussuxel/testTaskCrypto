@@ -76,7 +76,7 @@ const HomePage: FC = () => {
                         </StyledTable>
                     </WrapperTable>
                     {countOfPages ?
-                        <StyledButtonHome><StyledButton onClick={changeCountOfPages}>{t(`View more`)}</StyledButton></StyledButtonHome>
+                        <StyledButtonHome><StyledButton onClick={changeCountOfPages} data_testid='get-more-button'>{t(`View more`)}</StyledButton></StyledButtonHome>
                         : null
                     }
 
