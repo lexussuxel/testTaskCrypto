@@ -18,7 +18,8 @@ import {colors} from "../../UI/colors";
 import {useMediaQuery} from "../../hooks/useMediaQuery";
 import {useTranslation} from "react-i18next";
 import AddCurrencyButton from "../../components/AddCurrencyButton";
-import {trpc} from "../../utils/trpc";
+import {getData, getFullDataById} from "../../utils/api";
+
 
 const OneCurrencyPage: FC = () => {
     const {t} = useTranslation();
@@ -26,22 +27,24 @@ const OneCurrencyPage: FC = () => {
     const [data, setData] = useState<Item | undefined>(undefined);
     const [chartData, setChartData] = useState<Array<ItemChart>>([]);
     const isPhone = useMediaQuery('(max-width: 480px)');
-    const res = trpc.getData.useQuery({search: id || ''});
-    const chartRes = trpc.getChartData.useQuery({id: id || "", interval: 'h2'});
+    const res = getData({search: id});
+    const chartRes =getFullDataById({id: id||"", interval: 'h6'});
     useEffect(() => {
-        if(res.data)
-        {
-            setData(res.data?.data[0])
-        }
-    }, [ res.status])
-    useEffect(() => {
-        if(chartRes.data)
-        {
-            setChartData(chartRes.data?.data.map((element: ItemChart) => {
+
+            res.then((res)=>{setData(res.data[0])})
+        chartRes.then((chartRes)=>{
+            setChartData(chartRes.data.map((element: ItemChart) => {
                 return {...element, time: new Date(element.time)}
             }))
-        }
-    }, [ chartRes.status])
+        })
+        console.log(chartData)
+    }, [id])
+    // useEffect(() => {
+    //     if(chartRes.data)
+    //     {
+    //
+    //     }
+    // }, [ chartRes.status])
     const style = {
         display: isPhone ? 'none' : 'initial',
     }

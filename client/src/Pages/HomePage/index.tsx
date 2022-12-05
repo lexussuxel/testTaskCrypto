@@ -16,7 +16,7 @@ import {Item, tableFields} from "../../utils/types";
 import AddCurrencyButton from "../../components/AddCurrencyButton";
 import StyledButton from "../../components/StyledButton"
 import {useTranslation} from "react-i18next";
-import { trpc } from '../../utils/trpc';
+import {getData} from "../../utils/api";
 
 
 const HomePage: FC = () => {
@@ -24,16 +24,13 @@ const HomePage: FC = () => {
     const navigate = useNavigate();
     const [data, setData] = useState<Array<Item>>([]);
     const [countOfPages, setCountOfPages] = useState<number>(1);
-    const res = trpc.getData.useQuery({ offset: 20*(countOfPages - 1), limit:20});
+    const res = getData({offset: (countOfPages-1)*20, limit:20});
     useEffect(() => {
-        res.data ?
-            setData(data.concat(res.data?.data))
-            : null
-    }, [countOfPages, res.status])
+        res.then((res)=>{setData(data.concat(res.data))})
+    }, [countOfPages])
     const changeCountOfPages = () => {
         setCountOfPages(countOfPages + 1);
     }
-
     return (
         <div data-testid="main-page">
             <WrapperComponents>
@@ -42,8 +39,10 @@ const HomePage: FC = () => {
                         <StyledTable>
                             <StyledTHead>
                                 <StyledTr>
-                                    {tableFields.map((a, key) => <StyledTh key={key}
-                                                                           mobileShown={a.mobileShown}>{t(`Currency.${a.id}`)}</StyledTh>)}
+                                    {tableFields.map((a, key) =>
+                                        <StyledTh key={key} mobileShown={a.mobileShown}>
+                                            {t(`Currency.${a.id}`)}
+                                        </StyledTh>)}
                                 </StyledTr>
                             </StyledTHead>
 

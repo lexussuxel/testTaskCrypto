@@ -4,17 +4,15 @@ import {useNavigate} from "react-router-dom";
 import {InlineItemsWrapper, ItemDescription, ItemTitle, ItemWrapper, UnderHeaderWrapper} from './styles';
 import {convertBigNumbers} from "../../utils/convertBigNumbers";
 import {Item} from "../../utils/types";
-import {trpc} from "../../utils/trpc";
+import {getData} from "../../utils/api";
 
 const UnderHeader: FC = () => {
     const navigate = useNavigate();
     const [data, setData] = useState<Array<Item>>([]);
-    const res = trpc.getData.useQuery({ limit:3});
+    const res = getData({limit:3});
     useEffect(() => {
-        res.data ?
-            setData(res.data?.data)
-            : null
-    }, [res.status])
+        res.then((res)=>{setData(res.data)})
+    }, [])
     return (
         <UnderHeaderWrapper>
             <ColumnWrapper>
