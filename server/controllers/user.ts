@@ -19,7 +19,7 @@ class UserController {
             return 'user exists'
         }
         const hashPassword = await bcrypt.hash(password, 5)
-        const user = await User.create({email, password: hashPassword, role: role})
+        const user = await User.create({email, password: hashPassword, role: role || 'usercd'})
         const token = generateJWT(user.id, email, role)
         return res.json({token})
     }
@@ -38,8 +38,8 @@ class UserController {
     }
 
     async getAllTransactions(req:any, res:any){
-        const {userId} = req.body
-        const transactions = await Transactions.findAll({where: {userId: userId}})
+        const {id} = req.params
+        const transactions = await Transactions.findAll({where: {userId: id}})
         return res.json(transactions)
     }
 
@@ -47,6 +47,11 @@ class UserController {
         const {userId, role} = req.body
         const changedUser = await User.update({role}, {where: {id: userId}})
         return res.json(changedUser)
+    }
+
+    async getAllUsers(req:any, res:any){
+        const users = await User.findAll()
+        return res.json(users)
     }
 
     async add_to_wallet(req:any, res:any){

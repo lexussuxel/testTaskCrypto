@@ -15,7 +15,10 @@ export const resources = {
                 About: 'About',
                 Coins: 'Coins',
                 ru: 'ru',
-                en: 'en'
+                en: 'en',
+                LogIn: 'Log in',
+                LogOut: 'Log out',
+                Admin: 'Admin page'
             },
             Portfolio: {
                 Portfolio: 'Portfolio',
@@ -39,6 +42,16 @@ export const resources = {
                 Title: 'Enter count of currency',
                 Desc: 'Total price:',
                 Submit: 'Submit'
+            },
+            Auth:{
+                LogIn: 'Log in',
+                Registrate: 'Registrate',
+                email: 'Enter your email',
+                password:'Enter your password',
+                Title: 'Welcome to CryptoMan'
+            },
+            Admin:{
+
             }
         }
     },
@@ -58,7 +71,10 @@ export const resources = {
                 About: 'О приложении',
                 Coins: 'Монетки',
                 ru: 'РУС',
-                en: 'АНГ'
+                en: 'АНГ',
+                LogIn: 'Войти',
+                LogOut: 'Выйти',
+                Admin: 'Панель админа'
             },
             Portfolio: {
                 Portfolio: 'Портфель',
@@ -82,7 +98,14 @@ export const resources = {
                 Title: 'Введите количество валюты',
                 Desc: 'Всего:',
                 Submit: 'Подтвердить'
-            }
+            },
+            Auth:{
+                LogIn: 'Войти',
+                Registrate: 'Зарегистрироваться',
+                email: 'Введите ваш email',
+                password:'Введите ваш пароль',
+                Title: 'Добро пожаловать в CryptoMan'
+            },
         }
     }
 }

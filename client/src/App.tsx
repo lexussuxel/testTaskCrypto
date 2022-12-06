@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {Route, Routes} from "react-router-dom";
 import Header from "./components/Header";
 import HomePage from "./Pages/HomePage";
@@ -10,6 +10,8 @@ import UnderHeader from "./components/UnderHeader";
 import Footer from "./components/Footer";
 import {withTranslation} from "react-i18next";
 import Auth from "./Pages/Auth";
+import {useAppSelector} from "./hooks/useTypedSelector";
+import Admin from "./Pages/Admin";
 
 
 
@@ -20,17 +22,23 @@ const AppWrapper = styled.div`
 `
 
 const App: FC = () => {
-    console.log(process.env.REACT_APP_API)
+    const {role} = useAppSelector((state) => state.user);
+    console.log(role)
     return (
                 <AppWrapper>
                     <Header/>
                     <UnderHeader/>
                     <Routes>
-                        <Route path="/auth" element={<Auth/>}/>
+                        {role === 'admin'?
+                            <Route path="/admin" element={<Admin/>}/>
+                            : role ?
+                                <Route path="/portfolio" element={<Portfolio/>}/>
+
+                                : <Route path="/auth" element={<Auth/>}/>
+                        }
                         <Route path="/homepage" element={<HomePage/>}/>
                         <Route path="/currency/:id" element={<OneCurrencyPage/>}/>
                         <Route path="/about" element={<About/>}/>
-                        <Route path="/portfolio" element={<Portfolio/>}/>
                         <Route path="/*" element={<HomePage/>}/>
                     </Routes>
                     <Footer/>

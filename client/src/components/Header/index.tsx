@@ -15,6 +15,8 @@ import {useAppSelector} from "../../hooks/useTypedSelector";
 import {convertBigNumbers} from "../../utils/convertBigNumbers";
 import {useTranslation} from "react-i18next";
 import Switch from "../Switch";
+import {logOut} from "../../store/reducers/userSlice";
+import {useAppDispatch} from "../../hooks/useTypedDispatch";
 
 interface ISwitch {
     callback: ()=>void;
@@ -30,6 +32,8 @@ const Header: FC = () => {
     const {count, percent} = useAppSelector((state) => state.portfolio);
     const [isActive, setIsActive] = useState<boolean>(false);
     const [switches, setSwitches] = useState<Array<ISwitch>>([]);
+    const {role} = useAppSelector((state) => state.user);
+    const dispatch = useAppDispatch()
     useEffect(() => {
         setSwitches([{
                 callback: () => switchLng('en'),
@@ -70,13 +74,28 @@ const Header: FC = () => {
 
                 <StyledInlineWrapper>
                     <Switch switches={switches}/>
-                    <StyledButton onClick={() => navigateTo('/portfolio')}>
-                        <ColumnWrapperHeader>
-                            <div>{t('Portfolio.Portfolio')}</div>
-                            <div>${convertBigNumbers(count.toString())} + ${convertBigNumbers(percent.toString())}%
-                            </div>
-                        </ColumnWrapperHeader>
-                    </StyledButton>
+                    {role?
+                        <div style={{flexDirection: "row", display:"flex"}}>
+                            <StyledButton onClick={() => navigateTo('/portfolio')}>
+                                <ColumnWrapperHeader>
+                                    <div>{t('Portfolio.Portfolio')}</div>
+                                    <div>${convertBigNumbers(count.toString())} + ${convertBigNumbers(percent.toString())}%
+                                    </div>
+                                </ColumnWrapperHeader>
+                            </StyledButton>
+                            {role === "admin"?
+                                <HeaderButtonWrapper data-testid="coins" onClick={()=>navigateTo('/admin')}><p>{t('Header.Admin')}</p>
+                                </HeaderButtonWrapper>
+                                : null
+                            }
+                            <HeaderButtonWrapper data-testid="coins" onClick={()=>dispatch(logOut())}><p>{t('Header.LogOut')}</p>
+                            </HeaderButtonWrapper>
+                        </div>
+                    :
+                        <HeaderButtonWrapper data-testid="coins" onClick={()=>navigateTo('/auth')}><p>{t('Header.LogIn')}</p>
+                        </HeaderButtonWrapper>
+                    }
+
                 </StyledInlineWrapper>
             </WrapperHeaderContent>
         </WrapperHeader>)

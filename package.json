@@ -21,6 +21,8 @@
   "homepage": "https://github.com/lexussuxel/testTaskCrypto#readme",
   "dependencies": {
     "concurrently": "^7.4.0",
+    "docker": "^1.0.0",
+    "docker-compose": "^0.23.17",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
     "ts-types": "^0.0.9"
