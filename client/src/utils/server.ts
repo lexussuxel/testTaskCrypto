@@ -4,19 +4,26 @@ import {useAppSelector} from "../hooks/useTypedSelector";
 
 export const registration = async (email:string, password:string, role?:string)=>{
     const {data} = await $host.post('user/registration', {email, password, role: role || 'user'})
+    if (!data.token){
+        return data.message
+    }
     localStorage.setItem('token', data.token)
     return jwtDecode(data.token)
 }
 
 export const login = async (email:string, password:string)=>{
     const {data} = await $host.post('user/login', {email, password})
+    if (!data.token){
+        return data.message
+    }
     localStorage.setItem('token', data.token)
     return jwtDecode(data.token)
 }
 
 export const getAllUsers = async ()=>{
     const {data} = await $authHost.get('user/users')
-    return data
+    console.log(data)
+    return data.transactions
 }
 
 export const getAllTransactions = async ()=>{

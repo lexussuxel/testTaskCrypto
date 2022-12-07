@@ -12,29 +12,31 @@ class UserController {
     async registration(req:any, res:any){
         const {email, password, role} = req.body;
         if (!email || !password){
-            return 'no password or email'
+            return res.json({message:'no password or email'})
         }
         const candidate = await User.findOne({where:{email:email}})
         if (candidate){
-            return 'user exists'
+            return res.json({message:'user exists'})
         }
         const hashPassword = await bcrypt.hash(password, 5)
-        const user = await User.create({email, password: hashPassword, role: role || 'usercd'})
+        const user = await User.create({email, password: hashPassword, role: role || 'user'})
         const token = generateJWT(user.id, email, role)
+        req.user = user
         return res.json({token})
     }
 
     async logIn(req:any, res:any) {
         const {email, password} = req.body;
         if (!email || !password){
-            return 'no password or email'
+            return res.json({message:'no password or email'})
         }
         const candidate = await User.findOne({where:{email:email}})
         let comparePassword = bcrypt.compareSync(password, candidate.password)
         if(comparePassword){
             const token = generateJWT(candidate.id, candidate.email, candidate.role)
+            req.user = candidate
             return res.json({token})
-        }else res.error('lalala')
+        }else res.json({message:'wrong password'})
     }
 
     async getAllTransactions(req:any, res:any){
@@ -50,6 +52,7 @@ class UserController {
     }
 
     async getAllUsers(req:any, res:any){
+        console.log('get')
         const users = await User.findAll()
         return res.json(users)
     }
@@ -62,6 +65,13 @@ class UserController {
             count: parseFloat(count)
         })
         return res.json(transaction)
+    }
+
+    async check(req:any, res:any){
+        const {id} = req.params
+        const user = await User.findOne({where:{id}})
+        const token = generateJWT(user.id, user.email, user.role)
+        return res.json({token})
     }
 }
 

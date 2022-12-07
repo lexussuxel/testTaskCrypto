@@ -20,8 +20,13 @@ const Auth :FC = () => {
     const logInFunc = async (log: boolean)=>{
         if (verifyLogin(email) && verifyPassword(password)){
             const user = log?await login(email, password):await registration(email, password)
-            dispatch(logIn(user as IUser))
-            navigateTo('/')
+            if(typeof user === 'string' || user instanceof String){
+                alert(user)
+            } else{
+                dispatch(logIn(user as IUser))
+                navigateTo('/')
+            }
+
         }
 
     }
