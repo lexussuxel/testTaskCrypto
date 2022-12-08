@@ -51,7 +51,11 @@ export const resources = {
                 Title: 'Welcome to CryptoMan'
             },
             Admin:{
-
+                Title:'Admin panel',
+                user:'user',
+                admin:'admin',
+                blocked:'blocked',
+                role:'role'
             }
         }
     },
@@ -106,6 +110,13 @@ export const resources = {
                 password:'Введите ваш пароль',
                 Title: 'Добро пожаловать в CryptoMan'
             },
+            Admin:{
+                Title:'Панель администратора',
+                user:'пользователь',
+                admin:'администратор',
+                blocked:'заблокирован',
+                role:'роль'
+            }
         }
     }
 }

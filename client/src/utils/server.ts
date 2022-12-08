@@ -22,8 +22,7 @@ export const login = async (email:string, password:string)=>{
 
 export const getAllUsers = async ()=>{
     const {data} = await $authHost.get('user/users')
-    console.log(data)
-    return data.transactions
+    return data
 }
 
 export const getAllTransactions = async ()=>{

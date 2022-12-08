@@ -31,10 +31,11 @@ const App: FC = () => {
                     <Routes>
                         {role === 'admin'?
                             <Route path="/admin" element={<Admin/>}/>
-                            : role ?
-                                <Route path="/portfolio" element={<Portfolio/>}/>
+                            : null}
+                        {role ?
+                            <Route path="/portfolio" element={<Portfolio/>}/>
 
-                                : <Route path="/auth" element={<Auth/>}/>
+                            : <Route path="/auth" element={<Auth/>}/>
                         }
                         <Route path="/homepage" element={<HomePage/>}/>
                         <Route path="/currency/:id" element={<OneCurrencyPage/>}/>

@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import {WrapperLogIn} from "./styles";
-import {getAllUsers} from "../../utils/server";
+import {changeRole, getAllUsers} from "../../utils/server";
 import {Title} from "../About/styles";
 import {StyledTable, StyledTBody, StyledTd, StyledTh, StyledTHead, StyledTr} from "../HomePage/styles";
 import {useTranslation} from "react-i18next";
@@ -12,41 +12,48 @@ const Admin :FC = () => {
     const [usersTable, setUsersTable] = useState<any>([])
     const {t} = useTranslation()
     const navigate = useNavigate()
-    const changeRole = async (id:number) => {
-        null
-    }
+    const roles = [
+        'admin', 'user','blocked'
+    ]
 
     useEffect(()=>{
-        setUsersTable(users.then((res:any)=>res))
-        console.log(usersTable)
+        users.then((res:any)=>setUsersTable(res))
     }, [])
 
-    useEffect(()=>{
-        console.log(usersTable)
-    }, [usersTable])
+    const changeRoleHandler = async( id:string, role:string)=>{
+        await changeRole(id, role)
+        await getAllUsers().then((res:any)=>setUsersTable(res))
+    }
 
     return (
         <WrapperLogIn style={{flexDirection: 'column'}}>
-            <Title>Admin panel</Title>
+            <Title>{t('Admin.Title')}</Title>
             <StyledTable>
                 <StyledTHead>
                     <StyledTr>
                        <StyledTh>id</StyledTh>
                         <StyledTh>email</StyledTh>
-                        <StyledTh>role</StyledTh>
+                        <StyledTh>{t('Admin.role')}</StyledTh>
                     </StyledTr>
                 </StyledTHead>
 
                 <StyledTBody>
-                    {/*{*/}
-                    {/*    usersTable.map((element:any) =>*/}
-                    {/*        <StyledTr key={element.id}>*/}
-                    {/*           <StyledTd>{element.id}</StyledTd>*/}
-                    {/*            <StyledTd>{element.email}</StyledTd>*/}
-                    {/*            <StyledTd>{element.password}</StyledTd>*/}
-                    {/*        </StyledTr>*/}
-                    {/*    )*/}
-                    {/*}*/}
+                    {
+                        Array.isArray(usersTable)?
+                        usersTable.map((element:any) =>
+                            <StyledTr key={element.id}>
+                               <StyledTd>{element.id}</StyledTd>
+                                <StyledTd>{element.email}</StyledTd>
+                                <StyledTd>
+                                    <select value={element.role} onChange={(e)=> changeRoleHandler(element.id,e.target.value)}>
+                                        {roles.map((role, key)=>
+                                            <option value={role} key={key}>{t(`Admin.${role}`)}</option>
+                                        )}
+                                    </select>
+                                </StyledTd>
+                            </StyledTr>
+                        ):null
+                    }
                 </StyledTBody>
             </StyledTable>
         </WrapperLogIn>
