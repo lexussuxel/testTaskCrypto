@@ -9,5 +9,6 @@ interface IMocStore{
 export const mocStore = createStore(rootReducer);
 
 export const MocStore: FC<IMocStore> = ({children})=>{
+
     return <Provider store={mocStore}>{children}</Provider>
 }

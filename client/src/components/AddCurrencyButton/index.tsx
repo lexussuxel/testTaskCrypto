@@ -11,7 +11,9 @@ interface IAddCurrencyButtonProps {
     style?: string;
 }
 
+//кнопка для добавления валюты в кошелёк
 const AddCurrencyButton: FC<IAddCurrencyButtonProps> = ({element, style}) => {
+    //если не пришёл входной элемент, выходим из теста
     if (element === undefined)
         return null;
     const {t} = useTranslation();

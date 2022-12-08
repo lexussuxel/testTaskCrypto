@@ -3,13 +3,15 @@ import {fireEvent, render, screen} from "@testing-library/react";
 import '@testing-library/jest-dom'
 import '../../localization/i18n'
 import {mocElement} from "../../utils/mocItem";
-import {MocStore} from "../../utils/mocStrore";
+import {mocStore, MocStore} from "../../utils/mocStrore";
+import {setRole} from "../../store/reducers/userSlice";
 
 describe(('test add currency button'), ()=>{
 
     describe(('tests for coin style'), ()=>{
 
         beforeEach(()=>{
+            mocStore.dispatch(setRole('user'))
             render(<MocStore><AddCurrencyButton element={mocElement} style={'coin'}/></MocStore>);
         });
 
@@ -26,6 +28,7 @@ describe(('test add currency button'), ()=>{
     describe(('tests for full button style'), ()=>{
 
         beforeEach(()=>{
+            mocStore.dispatch(setRole('user'))
             render(<MocStore><AddCurrencyButton element={mocElement}/></MocStore>);
         });
 

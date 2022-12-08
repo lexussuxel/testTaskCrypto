@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {isPayloadV1} from "@trpc/server/dist/adapters/aws-lambda";
 
 export interface IUser {
     id: number;
@@ -36,10 +37,16 @@ const userSlice = createSlice({
             state.email = initialState.email
             localStorage.removeItem('token')
             localStorage.removeItem('persist:root')
+        },
+        setRole:(
+            state: IUser,
+            {payload}: PayloadAction<string | null>
+        )=>{
+          state.role = payload || 'user'
         }
 
     },
 });
 
-export const {logIn, logOut} = userSlice.actions
+export const {logIn, logOut, setRole} = userSlice.actions
 export default userSlice.reducer;
